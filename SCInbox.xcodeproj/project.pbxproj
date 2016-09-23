@@ -15,6 +15,9 @@
 		49C0442C1D9534F4008B1CBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C0442A1D9534F4008B1CBB /* LaunchScreen.storyboard */; };
 		49C044371D9534F4008B1CBB /* SCInboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044361D9534F4008B1CBB /* SCInboxTests.m */; };
 		49C044421D9534F4008B1CBB /* SCInboxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044411D9534F4008B1CBB /* SCInboxUITests.m */; };
+		49C044581D9557AE008B1CBB /* SCShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044561D9557AE008B1CBB /* SCShareViewController.m */; };
+		49C044591D9557AE008B1CBB /* SCShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C044571D9557AE008B1CBB /* SCShareViewController.xib */; };
+		49C0445C1D9557E1008B1CBB /* SCShareNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C0445B1D9557E1008B1CBB /* SCShareNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,11 @@
 		49C0443D1D9534F4008B1CBB /* SCInboxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SCInboxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C044411D9534F4008B1CBB /* SCInboxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCInboxUITests.m; sourceTree = "<group>"; };
 		49C044431D9534F4008B1CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49C044551D9557AE008B1CBB /* SCShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShareViewController.h; sourceTree = "<group>"; };
+		49C044561D9557AE008B1CBB /* SCShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareViewController.m; sourceTree = "<group>"; };
+		49C044571D9557AE008B1CBB /* SCShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCShareViewController.xib; sourceTree = "<group>"; };
+		49C0445A1D9557E1008B1CBB /* SCShareNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShareNavigationController.h; sourceTree = "<group>"; };
+		49C0445B1D9557E1008B1CBB /* SCShareNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 		49C0441B1D9534F4008B1CBB /* SCInbox */ = {
 			isa = PBXGroup;
 			children = (
+				49C044541D95579D008B1CBB /* SCShare */,
 				49C0441F1D9534F4008B1CBB /* AppDelegate.h */,
 				49C044201D9534F4008B1CBB /* AppDelegate.m */,
 				49C044221D9534F4008B1CBB /* ViewController.h */,
@@ -138,6 +147,18 @@
 				49C044431D9534F4008B1CBB /* Info.plist */,
 			);
 			path = SCInboxUITests;
+			sourceTree = "<group>";
+		};
+		49C044541D95579D008B1CBB /* SCShare */ = {
+			isa = PBXGroup;
+			children = (
+				49C044551D9557AE008B1CBB /* SCShareViewController.h */,
+				49C044561D9557AE008B1CBB /* SCShareViewController.m */,
+				49C044571D9557AE008B1CBB /* SCShareViewController.xib */,
+				49C0445A1D9557E1008B1CBB /* SCShareNavigationController.h */,
+				49C0445B1D9557E1008B1CBB /* SCShareNavigationController.m */,
+			);
+			name = SCShare;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +266,7 @@
 			files = (
 				49C0442C1D9534F4008B1CBB /* LaunchScreen.storyboard in Resources */,
 				49C044291D9534F4008B1CBB /* Assets.xcassets in Resources */,
+				49C044591D9557AE008B1CBB /* SCShareViewController.xib in Resources */,
 				49C044271D9534F4008B1CBB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +294,8 @@
 			files = (
 				49C044241D9534F4008B1CBB /* ViewController.m in Sources */,
 				49C044211D9534F4008B1CBB /* AppDelegate.m in Sources */,
+				49C0445C1D9557E1008B1CBB /* SCShareNavigationController.m in Sources */,
+				49C044581D9557AE008B1CBB /* SCShareViewController.m in Sources */,
 				49C0441E1D9534F4008B1CBB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +441,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AOY.SCInbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -428,6 +453,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AOY.SCInbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -496,6 +522,7 @@
 				49C044481D9534F4008B1CBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49C044491D9534F4008B1CBB /* Build configuration list for PBXNativeTarget "SCInboxTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +531,7 @@
 				49C0444B1D9534F4008B1CBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49C0444C1D9534F4008B1CBB /* Build configuration list for PBXNativeTarget "SCInboxUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +540,7 @@
 				49C0444E1D9534F4008B1CBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
