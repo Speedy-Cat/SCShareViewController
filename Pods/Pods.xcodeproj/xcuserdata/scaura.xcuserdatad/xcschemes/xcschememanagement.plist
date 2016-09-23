@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>KGKeyboardChangeManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SCInbox.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SCInboxTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SCInboxUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>51D94C8DD2215C9EDF5738B171A6EE27</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>533602CB709F7A5DB1273E14C330ECB4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>53584146DE5F3FABDD80E47D2A6EE000</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6615AB2BFDE07E00B3C7E6D375B0AA28</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

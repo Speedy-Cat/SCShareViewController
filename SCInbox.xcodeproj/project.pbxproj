@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		205E6FDC750DE84E48F0CB6A /* libPods-SCInbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F85D492969C40086313F0CE5 /* libPods-SCInbox.a */; };
+		26BB667550A84B44E68EC63F /* libPods-SCInboxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9444A7EA657609564124357 /* libPods-SCInboxTests.a */; };
 		49C0441E1D9534F4008B1CBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C0441D1D9534F4008B1CBB /* main.m */; };
 		49C044211D9534F4008B1CBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044201D9534F4008B1CBB /* AppDelegate.m */; };
-		49C044241D9534F4008B1CBB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044231D9534F4008B1CBB /* ViewController.m */; };
-		49C044271D9534F4008B1CBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C044251D9534F4008B1CBB /* Main.storyboard */; };
 		49C044291D9534F4008B1CBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C044281D9534F4008B1CBB /* Assets.xcassets */; };
-		49C0442C1D9534F4008B1CBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C0442A1D9534F4008B1CBB /* LaunchScreen.storyboard */; };
 		49C044371D9534F4008B1CBB /* SCInboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044361D9534F4008B1CBB /* SCInboxTests.m */; };
 		49C044421D9534F4008B1CBB /* SCInboxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044411D9534F4008B1CBB /* SCInboxUITests.m */; };
-		49C044581D9557AE008B1CBB /* SCShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044561D9557AE008B1CBB /* SCShareViewController.m */; };
 		49C044591D9557AE008B1CBB /* SCShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C044571D9557AE008B1CBB /* SCShareViewController.xib */; };
 		49C0445C1D9557E1008B1CBB /* SCShareNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C0445B1D9557E1008B1CBB /* SCShareNavigationController.m */; };
+		49C044641D956929008B1CBB /* SCShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044631D956929008B1CBB /* SCShareViewController.m */; };
+		BF863AF4020725BD7392A242 /* libPods-SCInboxUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD904FC619DB6C2EB48B3B /* libPods-SCInboxUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,15 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CA50C5FD667AD1E99DEEE65 /* Pods-SCInboxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInboxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SCInboxTests/Pods-SCInboxTests.release.xcconfig"; sourceTree = "<group>"; };
 		49C044191D9534F4008B1CBB /* SCInbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCInbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C0441D1D9534F4008B1CBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49C0441F1D9534F4008B1CBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49C044201D9534F4008B1CBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		49C044221D9534F4008B1CBB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		49C044231D9534F4008B1CBB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		49C044261D9534F4008B1CBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49C044281D9534F4008B1CBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		49C0442B1D9534F4008B1CBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49C0442D1D9534F4008B1CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49C044321D9534F4008B1CBB /* SCInboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SCInboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C044361D9534F4008B1CBB /* SCInboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCInboxTests.m; sourceTree = "<group>"; };
@@ -55,10 +52,18 @@
 		49C044411D9534F4008B1CBB /* SCInboxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCInboxUITests.m; sourceTree = "<group>"; };
 		49C044431D9534F4008B1CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49C044551D9557AE008B1CBB /* SCShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShareViewController.h; sourceTree = "<group>"; };
-		49C044561D9557AE008B1CBB /* SCShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareViewController.m; sourceTree = "<group>"; };
 		49C044571D9557AE008B1CBB /* SCShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCShareViewController.xib; sourceTree = "<group>"; };
 		49C0445A1D9557E1008B1CBB /* SCShareNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShareNavigationController.h; sourceTree = "<group>"; };
 		49C0445B1D9557E1008B1CBB /* SCShareNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareNavigationController.m; sourceTree = "<group>"; };
+		49C044631D956929008B1CBB /* SCShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareViewController.m; sourceTree = "<group>"; };
+		74AE67F9CF63C5BD12720BAC /* Pods-SCInboxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInboxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SCInboxUITests/Pods-SCInboxUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		99D0F5B64AB9E8640A5476F6 /* Pods-SCInbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SCInbox/Pods-SCInbox.debug.xcconfig"; sourceTree = "<group>"; };
+		9F6772B48D17083B49FC11D9 /* Pods-SCInbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-SCInbox/Pods-SCInbox.release.xcconfig"; sourceTree = "<group>"; };
+		A9444A7EA657609564124357 /* libPods-SCInboxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SCInboxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1CD904FC619DB6C2EB48B3B /* libPods-SCInboxUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SCInboxUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8816F3A39487DFF31DD9222 /* Pods-SCInboxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInboxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SCInboxTests/Pods-SCInboxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D63F3DB8AE4CDF3589B6242F /* Pods-SCInboxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInboxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SCInboxUITests/Pods-SCInboxUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F85D492969C40086313F0CE5 /* libPods-SCInbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SCInbox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205E6FDC750DE84E48F0CB6A /* libPods-SCInbox.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26BB667550A84B44E68EC63F /* libPods-SCInboxTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF863AF4020725BD7392A242 /* libPods-SCInboxUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +101,8 @@
 				49C044351D9534F4008B1CBB /* SCInboxTests */,
 				49C044401D9534F4008B1CBB /* SCInboxUITests */,
 				49C0441A1D9534F4008B1CBB /* Products */,
+				B6D3F2C85C8372B6543A73F6 /* Pods */,
+				CDCA2881F3A068BA51EF0CF5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,11 +122,7 @@
 				49C044541D95579D008B1CBB /* SCShare */,
 				49C0441F1D9534F4008B1CBB /* AppDelegate.h */,
 				49C044201D9534F4008B1CBB /* AppDelegate.m */,
-				49C044221D9534F4008B1CBB /* ViewController.h */,
-				49C044231D9534F4008B1CBB /* ViewController.m */,
-				49C044251D9534F4008B1CBB /* Main.storyboard */,
 				49C044281D9534F4008B1CBB /* Assets.xcassets */,
-				49C0442A1D9534F4008B1CBB /* LaunchScreen.storyboard */,
 				49C0442D1D9534F4008B1CBB /* Info.plist */,
 				49C0441C1D9534F4008B1CBB /* Supporting Files */,
 			);
@@ -152,13 +158,36 @@
 		49C044541D95579D008B1CBB /* SCShare */ = {
 			isa = PBXGroup;
 			children = (
+				49C044631D956929008B1CBB /* SCShareViewController.m */,
 				49C044551D9557AE008B1CBB /* SCShareViewController.h */,
-				49C044561D9557AE008B1CBB /* SCShareViewController.m */,
 				49C044571D9557AE008B1CBB /* SCShareViewController.xib */,
 				49C0445A1D9557E1008B1CBB /* SCShareNavigationController.h */,
 				49C0445B1D9557E1008B1CBB /* SCShareNavigationController.m */,
 			);
 			name = SCShare;
+			sourceTree = "<group>";
+		};
+		B6D3F2C85C8372B6543A73F6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				99D0F5B64AB9E8640A5476F6 /* Pods-SCInbox.debug.xcconfig */,
+				9F6772B48D17083B49FC11D9 /* Pods-SCInbox.release.xcconfig */,
+				C8816F3A39487DFF31DD9222 /* Pods-SCInboxTests.debug.xcconfig */,
+				0CA50C5FD667AD1E99DEEE65 /* Pods-SCInboxTests.release.xcconfig */,
+				74AE67F9CF63C5BD12720BAC /* Pods-SCInboxUITests.debug.xcconfig */,
+				D63F3DB8AE4CDF3589B6242F /* Pods-SCInboxUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CDCA2881F3A068BA51EF0CF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F85D492969C40086313F0CE5 /* libPods-SCInbox.a */,
+				A9444A7EA657609564124357 /* libPods-SCInboxTests.a */,
+				C1CD904FC619DB6C2EB48B3B /* libPods-SCInboxUITests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,9 +197,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49C044461D9534F4008B1CBB /* Build configuration list for PBXNativeTarget "SCInbox" */;
 			buildPhases = (
+				96A51EB0B1CB8338D2E36CBA /* Check Pods Manifest.lock */,
 				49C044151D9534F4008B1CBB /* Sources */,
 				49C044161D9534F4008B1CBB /* Frameworks */,
 				49C044171D9534F4008B1CBB /* Resources */,
+				9AC04E3CC91FEBBBCFB6DF00 /* Embed Pods Frameworks */,
+				79F6339FE87CF9BE512E7CEF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +217,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49C044491D9534F4008B1CBB /* Build configuration list for PBXNativeTarget "SCInboxTests" */;
 			buildPhases = (
+				375E76B5ECA4702A97CA64B4 /* Check Pods Manifest.lock */,
 				49C0442E1D9534F4008B1CBB /* Sources */,
 				49C0442F1D9534F4008B1CBB /* Frameworks */,
 				49C044301D9534F4008B1CBB /* Resources */,
+				704B0B677DE9FD1B09D780BE /* Embed Pods Frameworks */,
+				DEC457673538AB35ED2ED7E9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,9 +238,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49C0444C1D9534F4008B1CBB /* Build configuration list for PBXNativeTarget "SCInboxUITests" */;
 			buildPhases = (
+				5F5BFF7E027B04568FCC771E /* Check Pods Manifest.lock */,
 				49C044391D9534F4008B1CBB /* Sources */,
 				49C0443A1D9534F4008B1CBB /* Frameworks */,
 				49C0443B1D9534F4008B1CBB /* Resources */,
+				3D09FED7642DF01DD180BB82 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -264,10 +301,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C0442C1D9534F4008B1CBB /* LaunchScreen.storyboard in Resources */,
 				49C044291D9534F4008B1CBB /* Assets.xcassets in Resources */,
 				49C044591D9557AE008B1CBB /* SCShareViewController.xib in Resources */,
-				49C044271D9534F4008B1CBB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,15 +322,137 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		375E76B5ECA4702A97CA64B4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3D09FED7642DF01DD180BB82 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SCInboxUITests/Pods-SCInboxUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F5BFF7E027B04568FCC771E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		704B0B677DE9FD1B09D780BE /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SCInboxTests/Pods-SCInboxTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79F6339FE87CF9BE512E7CEF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SCInbox/Pods-SCInbox-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96A51EB0B1CB8338D2E36CBA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9AC04E3CC91FEBBBCFB6DF00 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SCInbox/Pods-SCInbox-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEC457673538AB35ED2ED7E9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SCInboxTests/Pods-SCInboxTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		49C044151D9534F4008B1CBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C044241D9534F4008B1CBB /* ViewController.m in Sources */,
 				49C044211D9534F4008B1CBB /* AppDelegate.m in Sources */,
 				49C0445C1D9557E1008B1CBB /* SCShareNavigationController.m in Sources */,
-				49C044581D9557AE008B1CBB /* SCShareViewController.m in Sources */,
+				49C044641D956929008B1CBB /* SCShareViewController.m in Sources */,
 				49C0441E1D9534F4008B1CBB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,25 +487,6 @@
 			targetProxy = 49C0443E1D9534F4008B1CBB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		49C044251D9534F4008B1CBB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49C044261D9534F4008B1CBB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		49C0442A1D9534F4008B1CBB /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49C0442B1D9534F4008B1CBB /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		49C044441D9534F4008B1CBB /* Debug */ = {
@@ -435,6 +573,7 @@
 		};
 		49C044471D9534F4008B1CBB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99D0F5B64AB9E8640A5476F6 /* Pods-SCInbox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SCInbox/Info.plist;
@@ -447,6 +586,7 @@
 		};
 		49C044481D9534F4008B1CBB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F6772B48D17083B49FC11D9 /* Pods-SCInbox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SCInbox/Info.plist;
@@ -459,6 +599,7 @@
 		};
 		49C0444A1D9534F4008B1CBB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8816F3A39487DFF31DD9222 /* Pods-SCInboxTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SCInboxTests/Info.plist;
@@ -471,6 +612,7 @@
 		};
 		49C0444B1D9534F4008B1CBB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CA50C5FD667AD1E99DEEE65 /* Pods-SCInboxTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SCInboxTests/Info.plist;
@@ -483,6 +625,7 @@
 		};
 		49C0444D1D9534F4008B1CBB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74AE67F9CF63C5BD12720BAC /* Pods-SCInboxUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SCInboxUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -494,6 +637,7 @@
 		};
 		49C0444E1D9534F4008B1CBB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D63F3DB8AE4CDF3589B6242F /* Pods-SCInboxUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SCInboxUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
