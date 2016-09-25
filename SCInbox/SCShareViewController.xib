@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCShareViewController">
             <connections>
+                <outlet property="containerScrollView" destination="JKA-lR-14o" id="ZLi-st-AXz"/>
                 <outlet property="containerView" destination="U9O-lL-m4k" id="V4C-Co-aj1"/>
                 <outlet property="toContainerView" destination="ue6-aE-65k" id="q9P-fi-z1s"/>
                 <outlet property="toTextField" destination="lqX-Qs-qGc" id="XkB-5G-0r8"/>

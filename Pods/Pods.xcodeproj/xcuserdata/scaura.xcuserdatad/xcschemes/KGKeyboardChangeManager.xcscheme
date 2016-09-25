@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B1F0645BEAC37318559E2E4A'
+               BlueprintIdentifier = '379FF5C5D2253C4089E89C17'
                BlueprintName = 'KGKeyboardChangeManager'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libKGKeyboardChangeManager.a'>

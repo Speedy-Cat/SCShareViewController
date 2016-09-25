@@ -7,11 +7,15 @@
 //
 
 #import "SCShareViewController.h"
+#import "KGKeyboardChangeManager.h"
+#import "SCShareLayout.h"
 
 @interface SCShareViewController ()
 @property (weak, nonatomic) IBOutlet UIView *toContainerView;
 @property (weak, nonatomic) IBOutlet UITextField *toTextField;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIScrollView *containerScrollView;
+@property (strong, nonatomic) UICollectionView *mailsCollectionView;
 
 @end
 
@@ -37,6 +41,23 @@
     //
     self.toTextField.delegate = self;
     [self.toTextField becomeFirstResponder];
+    
+    
+    
+    //
+    // keyboard observers
+    //
+    [[KGKeyboardChangeManager sharedManager] addObserverForKeyboardChangedWithBlock:^(BOOL show, CGRect keyboardRect, NSTimeInterval animationDuration, UIViewAnimationCurve animationCurve) {
+        
+        self.containerScrollView.frame = CGRectMake(0, 0, CGRectGetWidth(self.containerScrollView.frame), CGRectGetHeight(self.containerScrollView.frame) - CGRectGetHeight(keyboardRect));
+
+    }];
+    
+    
+    self.mailsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.toContainerView.frame.size.width, self.toContainerView.frame.size.height) collectionViewLayout:[[SCShareLayout alloc] init]];
+    self.mailsCollectionView.backgroundColor = [UIColor redColor];
+    [self.toContainerView addSubview:self.mailsCollectionView];
+
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

@@ -17,6 +17,7 @@
 		49C044591D9557AE008B1CBB /* SCShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C044571D9557AE008B1CBB /* SCShareViewController.xib */; };
 		49C0445C1D9557E1008B1CBB /* SCShareNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C0445B1D9557E1008B1CBB /* SCShareNavigationController.m */; };
 		49C044641D956929008B1CBB /* SCShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044631D956929008B1CBB /* SCShareViewController.m */; };
+		49C0446A1D95731B008B1CBB /* SCShareLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044691D95731B008B1CBB /* SCShareLayout.m */; };
 		BF863AF4020725BD7392A242 /* libPods-SCInboxUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD904FC619DB6C2EB48B3B /* libPods-SCInboxUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 		49C0445A1D9557E1008B1CBB /* SCShareNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShareNavigationController.h; sourceTree = "<group>"; };
 		49C0445B1D9557E1008B1CBB /* SCShareNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareNavigationController.m; sourceTree = "<group>"; };
 		49C044631D956929008B1CBB /* SCShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareViewController.m; sourceTree = "<group>"; };
+		49C044681D95731B008B1CBB /* SCShareLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShareLayout.h; sourceTree = "<group>"; };
+		49C044691D95731B008B1CBB /* SCShareLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareLayout.m; sourceTree = "<group>"; };
 		74AE67F9CF63C5BD12720BAC /* Pods-SCInboxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInboxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SCInboxUITests/Pods-SCInboxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		99D0F5B64AB9E8640A5476F6 /* Pods-SCInbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SCInbox/Pods-SCInbox.debug.xcconfig"; sourceTree = "<group>"; };
 		9F6772B48D17083B49FC11D9 /* Pods-SCInbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-SCInbox/Pods-SCInbox.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,11 +161,13 @@
 		49C044541D95579D008B1CBB /* SCShare */ = {
 			isa = PBXGroup;
 			children = (
-				49C044631D956929008B1CBB /* SCShareViewController.m */,
 				49C044551D9557AE008B1CBB /* SCShareViewController.h */,
+				49C044631D956929008B1CBB /* SCShareViewController.m */,
 				49C044571D9557AE008B1CBB /* SCShareViewController.xib */,
 				49C0445A1D9557E1008B1CBB /* SCShareNavigationController.h */,
 				49C0445B1D9557E1008B1CBB /* SCShareNavigationController.m */,
+				49C044681D95731B008B1CBB /* SCShareLayout.h */,
+				49C044691D95731B008B1CBB /* SCShareLayout.m */,
 			);
 			name = SCShare;
 			sourceTree = "<group>";
@@ -453,6 +458,7 @@
 				49C044211D9534F4008B1CBB /* AppDelegate.m in Sources */,
 				49C0445C1D9557E1008B1CBB /* SCShareNavigationController.m in Sources */,
 				49C044641D956929008B1CBB /* SCShareViewController.m in Sources */,
+				49C0446A1D95731B008B1CBB /* SCShareLayout.m in Sources */,
 				49C0441E1D9534F4008B1CBB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

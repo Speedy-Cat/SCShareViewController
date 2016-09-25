@@ -1,8 +1,10 @@
 PODS:
   - KGKeyboardChangeManager (0.0.3)
+  - Masonry (1.0.2)
 
 DEPENDENCIES:
   - KGKeyboardChangeManager (from `https://github.com/Speedy-Cat/KGKeyboardChangeManager.git`)
+  - Masonry
 
 EXTERNAL SOURCES:
   KGKeyboardChangeManager:
@@ -15,7 +17,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   KGKeyboardChangeManager: 122f900e34e530e7f4f55a2753f6245d1bdc2c7c
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
 
-PODFILE CHECKSUM: d66b49aaf587a5c55e4948761791c224f07483e5
+PODFILE CHECKSUM: 39d52aa50e0c00cd422ad26034ff69d99d79bd2e
 
 COCOAPODS: 1.0.0.beta.1

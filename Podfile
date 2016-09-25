@@ -5,6 +5,7 @@
 
 target 'SCInbox' do
 	pod 'KGKeyboardChangeManager', :git => 'https://github.com/Speedy-Cat/KGKeyboardChangeManager.git'
+    pod 'Masonry'
 end
 
 target 'SCInboxTests' do
