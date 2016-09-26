@@ -9,10 +9,10 @@
 #import "SCShareViewController.h"
 #import "KGKeyboardChangeManager.h"
 #import "SCShareLayout.h"
+#import "Masonry.h"
 
 @interface SCShareViewController ()
 @property (weak, nonatomic) IBOutlet UIView *toContainerView;
-@property (weak, nonatomic) IBOutlet UITextField *toTextField;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIScrollView *containerScrollView;
 @property (strong, nonatomic) UICollectionView *mailsCollectionView;
@@ -38,26 +38,67 @@
     
     self.navigationItem.rightBarButtonItem = anotherButton;
     
+    
     //
-    self.toTextField.delegate = self;
-    [self.toTextField becomeFirstResponder];
+    //collection
+    //
+    self.mailsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.toContainerView.frame.size.width, self.toContainerView.frame.size.height) collectionViewLayout:[[SCShareLayout alloc] init]];
+    self.mailsCollectionView.backgroundColor = [UIColor redColor];
+    [self.toContainerView addSubview:self.mailsCollectionView];
     
     
+
     
     //
     // keyboard observers
     //
     [[KGKeyboardChangeManager sharedManager] addObserverForKeyboardChangedWithBlock:^(BOOL show, CGRect keyboardRect, NSTimeInterval animationDuration, UIViewAnimationCurve animationCurve) {
         
-        self.containerScrollView.frame = CGRectMake(0, 0, CGRectGetWidth(self.containerScrollView.frame), CGRectGetHeight(self.containerScrollView.frame) - CGRectGetHeight(keyboardRect));
-
+        if (show) {
+            
+            [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
+                int heithg  = self.view.frame.size.height - self.toContainerView.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height - keyboardRect.size.height;
+                
+                make.height.equalTo(@(heithg));
+            }];
+            
+            [self.containerScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+                int heithg  = self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height - keyboardRect.size.height;
+                
+                make.height.equalTo(@(heithg));
+            }];
+        }
+        else{
+            [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
+                int heithg  = self.view.frame.size.height - self.toContainerView.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height;
+                
+                make.height.equalTo(@(heithg));
+            }];
+            
+            [self.containerScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
+                int heithg  = self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height;
+                
+                make.height.equalTo(@(heithg));
+            }];
+        }
     }];
     
-    
-    self.mailsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.toContainerView.frame.size.width, self.toContainerView.frame.size.height) collectionViewLayout:[[SCShareLayout alloc] init]];
-    self.mailsCollectionView.backgroundColor = [UIColor redColor];
-    [self.toContainerView addSubview:self.mailsCollectionView];
 
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
+        int heithg  = self.view.frame.size.height - self.toContainerView.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height;
+        
+        make.height.equalTo(@(heithg));
+    }];
+    
+    [self.mailsCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.toContainerView);
+    }];
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
