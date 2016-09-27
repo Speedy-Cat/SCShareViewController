@@ -18,6 +18,12 @@
 		49C0445C1D9557E1008B1CBB /* SCShareNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C0445B1D9557E1008B1CBB /* SCShareNavigationController.m */; };
 		49C044641D956929008B1CBB /* SCShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044631D956929008B1CBB /* SCShareViewController.m */; };
 		49C0446A1D95731B008B1CBB /* SCShareLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044691D95731B008B1CBB /* SCShareLayout.m */; };
+		49C044781D996B8C008B1CBB /* SCMailsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044771D996B8C008B1CBB /* SCMailsCollectionView.m */; };
+		49C0447D1D997AE8008B1CBB /* SCSearchTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C0447C1D997AE8008B1CBB /* SCSearchTableView.m */; };
+		49C044881D9AA6A6008B1CBB /* SCSearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044861D9AA6A6008B1CBB /* SCSearchCollectionViewCell.m */; };
+		49C044891D9AA6A6008B1CBB /* SCSearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C044871D9AA6A6008B1CBB /* SCSearchCollectionViewCell.xib */; };
+		49C0448E1D9AABA3008B1CBB /* SCContactCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C0448C1D9AABA3008B1CBB /* SCContactCollectionViewCell.m */; };
+		49C0448F1D9AABA3008B1CBB /* SCContactCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C0448D1D9AABA3008B1CBB /* SCContactCollectionViewCell.xib */; };
 		BF863AF4020725BD7392A242 /* libPods-SCInboxUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD904FC619DB6C2EB48B3B /* libPods-SCInboxUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +65,16 @@
 		49C044631D956929008B1CBB /* SCShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareViewController.m; sourceTree = "<group>"; };
 		49C044681D95731B008B1CBB /* SCShareLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShareLayout.h; sourceTree = "<group>"; };
 		49C044691D95731B008B1CBB /* SCShareLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareLayout.m; sourceTree = "<group>"; };
+		49C044761D996B8C008B1CBB /* SCMailsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMailsCollectionView.h; sourceTree = "<group>"; };
+		49C044771D996B8C008B1CBB /* SCMailsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMailsCollectionView.m; sourceTree = "<group>"; };
+		49C0447B1D997AE8008B1CBB /* SCSearchTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSearchTableView.h; sourceTree = "<group>"; };
+		49C0447C1D997AE8008B1CBB /* SCSearchTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSearchTableView.m; sourceTree = "<group>"; };
+		49C044851D9AA6A6008B1CBB /* SCSearchCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSearchCollectionViewCell.h; sourceTree = "<group>"; };
+		49C044861D9AA6A6008B1CBB /* SCSearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSearchCollectionViewCell.m; sourceTree = "<group>"; };
+		49C044871D9AA6A6008B1CBB /* SCSearchCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCSearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		49C0448B1D9AABA3008B1CBB /* SCContactCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCContactCollectionViewCell.h; sourceTree = "<group>"; };
+		49C0448C1D9AABA3008B1CBB /* SCContactCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCContactCollectionViewCell.m; sourceTree = "<group>"; };
+		49C0448D1D9AABA3008B1CBB /* SCContactCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCContactCollectionViewCell.xib; sourceTree = "<group>"; };
 		74AE67F9CF63C5BD12720BAC /* Pods-SCInboxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInboxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SCInboxUITests/Pods-SCInboxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		99D0F5B64AB9E8640A5476F6 /* Pods-SCInbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SCInbox/Pods-SCInbox.debug.xcconfig"; sourceTree = "<group>"; };
 		9F6772B48D17083B49FC11D9 /* Pods-SCInbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-SCInbox/Pods-SCInbox.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,10 +182,36 @@
 				49C044571D9557AE008B1CBB /* SCShareViewController.xib */,
 				49C0445A1D9557E1008B1CBB /* SCShareNavigationController.h */,
 				49C0445B1D9557E1008B1CBB /* SCShareNavigationController.m */,
-				49C044681D95731B008B1CBB /* SCShareLayout.h */,
-				49C044691D95731B008B1CBB /* SCShareLayout.m */,
+				49C044791D996BAB008B1CBB /* SCMailsCollection */,
+				49C0447A1D997AB3008B1CBB /* SCSearchTable */,
 			);
 			name = SCShare;
+			sourceTree = "<group>";
+		};
+		49C044791D996BAB008B1CBB /* SCMailsCollection */ = {
+			isa = PBXGroup;
+			children = (
+				49C044761D996B8C008B1CBB /* SCMailsCollectionView.h */,
+				49C044771D996B8C008B1CBB /* SCMailsCollectionView.m */,
+				49C044681D95731B008B1CBB /* SCShareLayout.h */,
+				49C044691D95731B008B1CBB /* SCShareLayout.m */,
+				49C044851D9AA6A6008B1CBB /* SCSearchCollectionViewCell.h */,
+				49C044861D9AA6A6008B1CBB /* SCSearchCollectionViewCell.m */,
+				49C044871D9AA6A6008B1CBB /* SCSearchCollectionViewCell.xib */,
+				49C0448B1D9AABA3008B1CBB /* SCContactCollectionViewCell.h */,
+				49C0448C1D9AABA3008B1CBB /* SCContactCollectionViewCell.m */,
+				49C0448D1D9AABA3008B1CBB /* SCContactCollectionViewCell.xib */,
+			);
+			name = SCMailsCollection;
+			sourceTree = "<group>";
+		};
+		49C0447A1D997AB3008B1CBB /* SCSearchTable */ = {
+			isa = PBXGroup;
+			children = (
+				49C0447B1D997AE8008B1CBB /* SCSearchTableView.h */,
+				49C0447C1D997AE8008B1CBB /* SCSearchTableView.m */,
+			);
+			name = SCSearchTable;
 			sourceTree = "<group>";
 		};
 		B6D3F2C85C8372B6543A73F6 /* Pods */ = {
@@ -307,6 +349,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				49C044291D9534F4008B1CBB /* Assets.xcassets in Resources */,
+				49C0448F1D9AABA3008B1CBB /* SCContactCollectionViewCell.xib in Resources */,
+				49C044891D9AA6A6008B1CBB /* SCSearchCollectionViewCell.xib in Resources */,
 				49C044591D9557AE008B1CBB /* SCShareViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,9 +501,13 @@
 			files = (
 				49C044211D9534F4008B1CBB /* AppDelegate.m in Sources */,
 				49C0445C1D9557E1008B1CBB /* SCShareNavigationController.m in Sources */,
+				49C044881D9AA6A6008B1CBB /* SCSearchCollectionViewCell.m in Sources */,
+				49C0448E1D9AABA3008B1CBB /* SCContactCollectionViewCell.m in Sources */,
 				49C044641D956929008B1CBB /* SCShareViewController.m in Sources */,
 				49C0446A1D95731B008B1CBB /* SCShareLayout.m in Sources */,
 				49C0441E1D9534F4008B1CBB /* main.m in Sources */,
+				49C044781D996B8C008B1CBB /* SCMailsCollectionView.m in Sources */,
+				49C0447D1D997AE8008B1CBB /* SCSearchTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

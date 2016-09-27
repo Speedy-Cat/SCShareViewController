@@ -8,14 +8,16 @@
 
 #import "SCShareViewController.h"
 #import "KGKeyboardChangeManager.h"
-#import "SCShareLayout.h"
 #import "Masonry.h"
+
 
 @interface SCShareViewController ()
 @property (weak, nonatomic) IBOutlet UIView *toContainerView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIScrollView *containerScrollView;
-@property (strong, nonatomic) UICollectionView *mailsCollectionView;
+@property (strong, nonatomic) SCMailsCollectionView *mailsCollectionView;
+@property (strong, nonatomic) NSMutableArray *contacts;
+@property (strong, nonatomic) SCSearchTableView *searchTableView;
 
 @end
 
@@ -26,6 +28,16 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"Share";
+    
+    self.contacts = [[NSMutableArray alloc] initWithArray:@[
+                                                           @{
+                                                               @"mail":@"john@gmail.com",
+                                                               @"name":@"John Poe"},
+                                                           @{
+                                                               @"mail":@"daniel@gmail.com",
+                                                               @"name":@"Daniel Ases"}
+                                                           ]];
+    
     
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:nil];
     
@@ -42,11 +54,18 @@
     //
     //collection
     //
-    self.mailsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.toContainerView.frame.size.width, self.toContainerView.frame.size.height) collectionViewLayout:[[SCShareLayout alloc] init]];
+    self.mailsCollectionView = [[SCMailsCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.toContainerView.frame.size.width, self.toContainerView.frame.size.height)];
     self.mailsCollectionView.backgroundColor = [UIColor redColor];
+    self.mailsCollectionView.SCMailsDelegate = self;
     [self.toContainerView addSubview:self.mailsCollectionView];
     
-    
+    //
+    // table search
+    //
+    self.searchTableView = [[SCSearchTableView alloc] initWithFrame:self.containerView.frame];
+    self.searchTableView.hidden = YES;
+    self.searchTableView.delegate = self;
+    [self.containerView addSubview:self.searchTableView];
 
     
     //
@@ -99,6 +118,10 @@
     [self.mailsCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.toContainerView);
     }];
+    
+    [self.searchTableView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.containerView);
+    }];
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -117,6 +140,48 @@
     //[[PNMApplicationManager sharedInstance].navigationController popViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - SCMailsDelegate
+
+-(void)mailCollectionChangeMailText:(NSString *)mailText
+{
+    if ([mailText isEqualToString:@""]) {
+        self.searchTableView.hidden = YES;
+        return;
+    }
+    else{
+        self.searchTableView.hidden = NO;
+    }
+    
+    NSArray *result = [self searchEmailWithString:mailText];
+    
+    self.searchTableView.contacts = result;
+    [self.searchTableView reloadData];
+    
+}
+
+#pragma mark - search table view delegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *contact = self.searchTableView.contacts[indexPath.row];
+    
+    if([self.mailsCollectionView addContact:contact]){
+        self.searchTableView.hidden = YES;
+        [self.contacts removeObject:contact];
+        [self.mailsCollectionView.searchTextfield becomeFirstResponder];
+    }
+}
+
+
+-(NSArray*)searchEmailWithString:(NSString*)string
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.mail CONTAINS %@ || self.name CONTAINS %@", string, string];
+    NSArray *result = [self.contacts filteredArrayUsingPredicate:predicate];
+    return result;
+}
+
+
 
 /*
 #pragma mark - Navigation
