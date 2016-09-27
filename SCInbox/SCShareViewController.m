@@ -164,12 +164,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *contact = self.searchTableView.contacts[indexPath.row];
-    
-    if([self.mailsCollectionView addContact:contact]){
-        self.searchTableView.hidden = YES;
-        [self.contacts removeObject:contact];
-        [self.mailsCollectionView.searchTextfield becomeFirstResponder];
+    if(self.searchTableView.contacts.count){
+        NSDictionary *contact = self.searchTableView.contacts[indexPath.row];
+        
+        if([self.mailsCollectionView addContact:contact]){
+            self.searchTableView.hidden = YES;
+            [self.contacts removeObject:contact];
+            [self.mailsCollectionView.searchTextfield becomeFirstResponder];
+        }
     }
 }
 
