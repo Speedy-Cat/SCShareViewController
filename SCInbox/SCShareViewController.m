@@ -35,7 +35,10 @@
                                                                @"name":@"John Poe"},
                                                            @{
                                                                @"mail":@"daniel@gmail.com",
-                                                               @"name":@"Daniel Ases"}
+                                                               @"name":@"Daniel Ases"},
+                                                           @{
+                                                               @"mail":@"juan@gmail.com",
+                                                               @"name":@"juan Ases"}
                                                            ]];
     
     
@@ -167,10 +170,11 @@
     if(self.searchTableView.contacts.count){
         NSDictionary *contact = self.searchTableView.contacts[indexPath.row];
         
+        // add contact to mail collecion
         if([self.mailsCollectionView addContact:contact]){
+            // remove contact from search table
             self.searchTableView.hidden = YES;
             [self.contacts removeObject:contact];
-            [self.mailsCollectionView.searchTextfield becomeFirstResponder];
         }
     }
 }

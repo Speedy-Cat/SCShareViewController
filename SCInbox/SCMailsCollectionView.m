@@ -67,7 +67,6 @@
         cell.backgroundColor = [UIColor greenColor];
         
         return cell;
-        
     }
 }
 
@@ -83,6 +82,37 @@
     return YES;
 }
 
+#pragma mark - collection delegate
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+        UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
+    datasetCell.backgroundColor = [UIColor blueColor];
+//    if(datasetCell.selected){
+//        datasetCell.selected = NO;
+//        datasetCell.backgroundColor = [UIColor clearColor];
+//    }
+//    else{
+//        datasetCell.selected = YES;
+//        datasetCell.backgroundColor = [UIColor blueColor];
+//    }
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+//    UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
+//    datasetCell.backgroundColor = [UIColor clearColor];
+//    NSLog(@"");
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+//    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+//    cell.backgroundColor = [UIColor blackColor];
+}
+
+#pragma mark - helper functions
+
 -(BOOL)addContact:(NSDictionary*)contact
 {
     if ([self isContactExist:contact]) {
@@ -91,7 +121,7 @@
     else{
         [self.contacts insertObject:contact atIndex:self.contacts.count - 1];
         self.searchTextfield.text = @"";
-        [self reloadData];
+        [self insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
         return YES;
     }
 }
@@ -100,5 +130,7 @@
 {
     return [self.contacts containsObject:contact];
 }
+
+
 
 @end
