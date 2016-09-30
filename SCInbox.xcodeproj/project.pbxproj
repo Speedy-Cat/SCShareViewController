@@ -222,13 +222,13 @@
 		49C044541D95579D008B1CBB /* SCShare */ = {
 			isa = PBXGroup;
 			children = (
-				49C044B51D9EAD8F008B1CBB /* SCCreateContactVC */,
 				49C044551D9557AE008B1CBB /* SCShareViewController.h */,
 				49C044631D956929008B1CBB /* SCShareViewController.m */,
 				49C044571D9557AE008B1CBB /* SCShareViewController.xib */,
 				49C0445A1D9557E1008B1CBB /* SCShareNavigationController.h */,
 				49C0445B1D9557E1008B1CBB /* SCShareNavigationController.m */,
 				49C044791D996BAB008B1CBB /* SCMailsCollection */,
+				49C044B51D9EAD8F008B1CBB /* SCCreateContactVC */,
 				49C044991D9E845A008B1CBB /* SCFilesShareCollection */,
 				49C0447A1D997AB3008B1CBB /* SCSearchTable */,
 			);

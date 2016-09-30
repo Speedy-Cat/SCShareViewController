@@ -19,7 +19,7 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1L-Tx-gno">
-                        <rect key="frame" x="0.0" y="0.0" width="247" height="38"/>
+                        <rect key="frame" x="4" y="0.0" width="239" height="38"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -28,8 +28,8 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="x1L-Tx-gno" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Feg-zz-bJA"/>
-                <constraint firstAttribute="trailing" secondItem="x1L-Tx-gno" secondAttribute="trailing" id="c7Q-7H-TbA"/>
+                <constraint firstItem="x1L-Tx-gno" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="Feg-zz-bJA"/>
+                <constraint firstAttribute="trailing" secondItem="x1L-Tx-gno" secondAttribute="trailing" constant="4" id="c7Q-7H-TbA"/>
                 <constraint firstAttribute="bottom" secondItem="x1L-Tx-gno" secondAttribute="bottom" id="rOG-TS-hPc"/>
                 <constraint firstItem="x1L-Tx-gno" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ylR-PB-Y71"/>
             </constraints>

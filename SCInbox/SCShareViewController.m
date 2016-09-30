@@ -120,8 +120,19 @@
         make.height.equalTo(@(heithg));
     }];
     
+    self.mailsCollectionView.backgroundColor = [UIColor greenColor];
+    
+    
     [self.mailsCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.toContainerView);
+        make.top.equalTo(self.toContainerView);
+        make.bottom.equalTo(self.toContainerView).with.offset(-1);
+        make.right.equalTo(self.toContainerView).with.offset(-10);
+        make.left.equalTo(self.toContainerView).with.offset(5);
+//        make.top.equalTo(superview.mas_top).with.offset(padding.top); //with is an optional semantic filler
+//        make.left.equalTo(superview.mas_left).with.offset(padding.left);
+//        make.bottom.equalTo(superview.mas_bottom).with.offset(-padding.bottom);
+//        make.right.equalTo(superview.mas_right).with.offset(-padding.right);
+        //make.edges.equalTo(self.toContainerView);
     }];
     
     [self.searchTableView mas_updateConstraints:^(MASConstraintMaker *make) {

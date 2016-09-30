@@ -51,15 +51,15 @@
             NSString *mail = [((NSDictionary*)contact) objectForKey:@"mail"];
             
             CGFloat size = [self widthOfString:mail withFont:[UIFont fontWithName:@"Helvetica" size:16]];
-            
+            CGFloat padding = 4 * 2;
             
             CGRect cellFrame;
             if (lastAtt) {
                 CGFloat x = lastAtt.frame.origin.x + lastAtt.frame.size.width;
-                cellFrame = CGRectMake(x, 0, size, self.collectionView.frame.size.height);
+                cellFrame = CGRectMake(x, 0, size + padding, self.collectionView.frame.size.height);
             }
             else{
-                cellFrame = CGRectMake(0, 0, size, self.collectionView.frame.size.height);
+                cellFrame = CGRectMake(0, 0, size + padding, self.collectionView.frame.size.height);
             }
             
             
