@@ -13,6 +13,11 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="247" height="38"/>
                 <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7kJ-a7-dmn">
+                        <rect key="frame" x="49" y="4" width="97" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1L-Tx-gno">
                         <rect key="frame" x="0.0" y="0.0" width="247" height="38"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
@@ -31,6 +36,7 @@
             <size key="customSize" width="247" height="38"/>
             <connections>
                 <outlet property="label" destination="x1L-Tx-gno" id="uF3-MR-Iay"/>
+                <outlet property="textField" destination="7kJ-a7-dmn" id="95z-HT-43x"/>
             </connections>
             <point key="canvasLocation" x="418.5" y="446"/>
         </collectionViewCell>

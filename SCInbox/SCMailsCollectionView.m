@@ -72,22 +72,56 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    UICollectionViewCell *cell = [[textField superview] superview];
     
     NSString * proposedNewString = [[textField text] stringByReplacingCharactersInRange:range withString:string];
+    
+    if([cell isKindOfClass:[SCContactCollectionViewCell class]]){
+        
+        NSString *contactmail = ((SCContactCollectionViewCell*)cell).label.text;
+        NSIndexPath *indexPath = [self indexPathForCell:cell];
+        
+        // delete contact cell
+        NSDictionary *contact = [self searchEmailWithString:contactmail][0];
+        [self.contacts removeObject:contact];
+        [self deleteItemsAtIndexPaths:@[indexPath]];
+        [self.searchTextfield becomeFirstResponder];
+        
+        // notify removed contact
+        if([self.SCMailsDelegate respondsToSelector:@selector(mailCollectionRemoveContact:)]) {
+            [self.SCMailsDelegate mailCollectionRemoveContact:contact];
+        }
+    }
     
     if([self.SCMailsDelegate respondsToSelector:@selector(mailCollectionChangeMailText:)]) {
         [self.SCMailsDelegate mailCollectionChangeMailText:proposedNewString];
     }
     
+    
     return YES;
+}
+
+-(NSArray*)searchEmailWithString:(NSString*)string
+{
+    NSMutableArray *contacts = [[NSMutableArray alloc] initWithArray:[self.contacts copy]];
+    [contacts removeObjectAtIndex:contacts.count - 1];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.mail == %@", string];
+    NSArray *result = [contacts filteredArrayUsingPredicate:predicate];
+    return result;
 }
 
 #pragma mark - collection delegate
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-        UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
+    UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
+    [((SCContactCollectionViewCell*)datasetCell).textField becomeFirstResponder];
+    ((SCContactCollectionViewCell*)datasetCell).textField.delegate = self;
+    
     datasetCell.backgroundColor = [UIColor blueColor];
+    
+    
 //    if(datasetCell.selected){
 //        datasetCell.selected = NO;
 //        datasetCell.backgroundColor = [UIColor clearColor];

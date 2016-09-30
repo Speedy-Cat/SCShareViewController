@@ -12,6 +12,8 @@
 
 -(void)mailCollectionChangeMailText:(NSString*)mailText;
 
+-(void)mailCollectionRemoveContact:(NSDictionary*)contact;
+
 @end
 
 @interface SCMailsCollectionView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate>

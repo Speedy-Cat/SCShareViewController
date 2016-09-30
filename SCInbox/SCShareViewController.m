@@ -144,7 +144,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - SCMailsDelegate
+#pragma mark - SCMailsCollectionDelegate
 
 -(void)mailCollectionChangeMailText:(NSString *)mailText
 {
@@ -157,10 +157,13 @@
     }
     
     NSArray *result = [self searchEmailWithString:mailText];
-    
     self.searchTableView.contacts = result;
     [self.searchTableView reloadData];
-    
+}
+
+-(void)mailCollectionRemoveContact:(NSDictionary*)contact
+{
+    [self.contacts addObject:contact];
 }
 
 #pragma mark - search table view delegate

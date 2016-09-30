@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SCContactCollectionViewCell : UICollectionViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end

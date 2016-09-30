@@ -24,6 +24,7 @@
 		49C044891D9AA6A6008B1CBB /* SCSearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C044871D9AA6A6008B1CBB /* SCSearchCollectionViewCell.xib */; };
 		49C0448E1D9AABA3008B1CBB /* SCContactCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C0448C1D9AABA3008B1CBB /* SCContactCollectionViewCell.m */; };
 		49C0448F1D9AABA3008B1CBB /* SCContactCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C0448D1D9AABA3008B1CBB /* SCContactCollectionViewCell.xib */; };
+		49C044981D9DA853008B1CBB /* NSString+search.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044971D9DA853008B1CBB /* NSString+search.m */; };
 		BF863AF4020725BD7392A242 /* libPods-SCInboxUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD904FC619DB6C2EB48B3B /* libPods-SCInboxUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,8 @@
 		49C0448B1D9AABA3008B1CBB /* SCContactCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCContactCollectionViewCell.h; sourceTree = "<group>"; };
 		49C0448C1D9AABA3008B1CBB /* SCContactCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCContactCollectionViewCell.m; sourceTree = "<group>"; };
 		49C0448D1D9AABA3008B1CBB /* SCContactCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCContactCollectionViewCell.xib; sourceTree = "<group>"; };
+		49C044961D9DA853008B1CBB /* NSString+search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+search.h"; sourceTree = "<group>"; };
+		49C044971D9DA853008B1CBB /* NSString+search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+search.m"; sourceTree = "<group>"; };
 		74AE67F9CF63C5BD12720BAC /* Pods-SCInboxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInboxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SCInboxUITests/Pods-SCInboxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		99D0F5B64AB9E8640A5476F6 /* Pods-SCInbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SCInbox/Pods-SCInbox.debug.xcconfig"; sourceTree = "<group>"; };
 		9F6772B48D17083B49FC11D9 /* Pods-SCInbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-SCInbox/Pods-SCInbox.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				49C044281D9534F4008B1CBB /* Assets.xcassets */,
 				49C0442D1D9534F4008B1CBB /* Info.plist */,
 				49C0441C1D9534F4008B1CBB /* Supporting Files */,
+				49C044961D9DA853008B1CBB /* NSString+search.h */,
+				49C044971D9DA853008B1CBB /* NSString+search.m */,
 			);
 			path = SCInbox;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 				49C044211D9534F4008B1CBB /* AppDelegate.m in Sources */,
 				49C0445C1D9557E1008B1CBB /* SCShareNavigationController.m in Sources */,
 				49C044881D9AA6A6008B1CBB /* SCSearchCollectionViewCell.m in Sources */,
+				49C044981D9DA853008B1CBB /* NSString+search.m in Sources */,
 				49C0448E1D9AABA3008B1CBB /* SCContactCollectionViewCell.m in Sources */,
 				49C044641D956929008B1CBB /* SCShareViewController.m in Sources */,
 				49C0446A1D95731B008B1CBB /* SCShareLayout.m in Sources */,
