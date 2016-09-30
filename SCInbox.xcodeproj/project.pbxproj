@@ -25,6 +25,20 @@
 		49C0448E1D9AABA3008B1CBB /* SCContactCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C0448C1D9AABA3008B1CBB /* SCContactCollectionViewCell.m */; };
 		49C0448F1D9AABA3008B1CBB /* SCContactCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C0448D1D9AABA3008B1CBB /* SCContactCollectionViewCell.xib */; };
 		49C044981D9DA853008B1CBB /* NSString+search.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044971D9DA853008B1CBB /* NSString+search.m */; };
+		49C0449C1D9E882D008B1CBB /* SCFilesShareCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C0449B1D9E882D008B1CBB /* SCFilesShareCollection.m */; };
+		49C044A71D9EA50C008B1CBB /* a.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49C0449E1D9EA50C008B1CBB /* a.jpg */; };
+		49C044A81D9EA50C008B1CBB /* b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49C0449F1D9EA50C008B1CBB /* b.jpg */; };
+		49C044A91D9EA50C008B1CBB /* c.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49C044A01D9EA50C008B1CBB /* c.jpg */; };
+		49C044AA1D9EA50C008B1CBB /* d.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49C044A11D9EA50C008B1CBB /* d.jpg */; };
+		49C044AB1D9EA50C008B1CBB /* e.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49C044A21D9EA50C008B1CBB /* e.jpg */; };
+		49C044AC1D9EA50C008B1CBB /* f.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49C044A31D9EA50C008B1CBB /* f.jpg */; };
+		49C044AD1D9EA50C008B1CBB /* g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49C044A41D9EA50C008B1CBB /* g.jpg */; };
+		49C044AE1D9EA50C008B1CBB /* h.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49C044A51D9EA50C008B1CBB /* h.jpg */; };
+		49C044AF1D9EA50C008B1CBB /* i.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49C044A61D9EA50C008B1CBB /* i.jpg */; };
+		49C044B31D9EA6D3008B1CBB /* SCFileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044B11D9EA6D3008B1CBB /* SCFileCollectionViewCell.m */; };
+		49C044B41D9EA6D3008B1CBB /* SCFileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C044B21D9EA6D3008B1CBB /* SCFileCollectionViewCell.xib */; };
+		49C044B91D9EADC4008B1CBB /* SCCCreateContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044B71D9EADC4008B1CBB /* SCCCreateContactViewController.m */; };
+		49C044BA1D9EADC4008B1CBB /* SCCCreateContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C044B81D9EADC4008B1CBB /* SCCCreateContactViewController.xib */; };
 		BF863AF4020725BD7392A242 /* libPods-SCInboxUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CD904FC619DB6C2EB48B3B /* libPods-SCInboxUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +92,23 @@
 		49C0448D1D9AABA3008B1CBB /* SCContactCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCContactCollectionViewCell.xib; sourceTree = "<group>"; };
 		49C044961D9DA853008B1CBB /* NSString+search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+search.h"; sourceTree = "<group>"; };
 		49C044971D9DA853008B1CBB /* NSString+search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+search.m"; sourceTree = "<group>"; };
+		49C0449A1D9E882D008B1CBB /* SCFilesShareCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilesShareCollection.h; sourceTree = "<group>"; };
+		49C0449B1D9E882D008B1CBB /* SCFilesShareCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilesShareCollection.m; sourceTree = "<group>"; };
+		49C0449E1D9EA50C008B1CBB /* a.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = a.jpg; sourceTree = "<group>"; };
+		49C0449F1D9EA50C008B1CBB /* b.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = b.jpg; sourceTree = "<group>"; };
+		49C044A01D9EA50C008B1CBB /* c.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = c.jpg; sourceTree = "<group>"; };
+		49C044A11D9EA50C008B1CBB /* d.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d.jpg; sourceTree = "<group>"; };
+		49C044A21D9EA50C008B1CBB /* e.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = e.jpg; sourceTree = "<group>"; };
+		49C044A31D9EA50C008B1CBB /* f.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = f.jpg; sourceTree = "<group>"; };
+		49C044A41D9EA50C008B1CBB /* g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = g.jpg; sourceTree = "<group>"; };
+		49C044A51D9EA50C008B1CBB /* h.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = h.jpg; sourceTree = "<group>"; };
+		49C044A61D9EA50C008B1CBB /* i.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = i.jpg; sourceTree = "<group>"; };
+		49C044B01D9EA6D3008B1CBB /* SCFileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFileCollectionViewCell.h; sourceTree = "<group>"; };
+		49C044B11D9EA6D3008B1CBB /* SCFileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFileCollectionViewCell.m; sourceTree = "<group>"; };
+		49C044B21D9EA6D3008B1CBB /* SCFileCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCFileCollectionViewCell.xib; sourceTree = "<group>"; };
+		49C044B61D9EADC4008B1CBB /* SCCCreateContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCCreateContactViewController.h; sourceTree = "<group>"; };
+		49C044B71D9EADC4008B1CBB /* SCCCreateContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCCreateContactViewController.m; sourceTree = "<group>"; };
+		49C044B81D9EADC4008B1CBB /* SCCCreateContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCCCreateContactViewController.xib; sourceTree = "<group>"; };
 		74AE67F9CF63C5BD12720BAC /* Pods-SCInboxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInboxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SCInboxUITests/Pods-SCInboxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		99D0F5B64AB9E8640A5476F6 /* Pods-SCInbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SCInbox/Pods-SCInbox.debug.xcconfig"; sourceTree = "<group>"; };
 		9F6772B48D17083B49FC11D9 /* Pods-SCInbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-SCInbox/Pods-SCInbox.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +150,15 @@
 		49C044101D9534F4008B1CBB = {
 			isa = PBXGroup;
 			children = (
+				49C0449E1D9EA50C008B1CBB /* a.jpg */,
+				49C0449F1D9EA50C008B1CBB /* b.jpg */,
+				49C044A01D9EA50C008B1CBB /* c.jpg */,
+				49C044A11D9EA50C008B1CBB /* d.jpg */,
+				49C044A21D9EA50C008B1CBB /* e.jpg */,
+				49C044A31D9EA50C008B1CBB /* f.jpg */,
+				49C044A41D9EA50C008B1CBB /* g.jpg */,
+				49C044A51D9EA50C008B1CBB /* h.jpg */,
+				49C044A61D9EA50C008B1CBB /* i.jpg */,
 				49C0441B1D9534F4008B1CBB /* SCInbox */,
 				49C044351D9534F4008B1CBB /* SCInboxTests */,
 				49C044401D9534F4008B1CBB /* SCInboxUITests */,
@@ -182,12 +222,14 @@
 		49C044541D95579D008B1CBB /* SCShare */ = {
 			isa = PBXGroup;
 			children = (
+				49C044B51D9EAD8F008B1CBB /* SCCreateContactVC */,
 				49C044551D9557AE008B1CBB /* SCShareViewController.h */,
 				49C044631D956929008B1CBB /* SCShareViewController.m */,
 				49C044571D9557AE008B1CBB /* SCShareViewController.xib */,
 				49C0445A1D9557E1008B1CBB /* SCShareNavigationController.h */,
 				49C0445B1D9557E1008B1CBB /* SCShareNavigationController.m */,
 				49C044791D996BAB008B1CBB /* SCMailsCollection */,
+				49C044991D9E845A008B1CBB /* SCFilesShareCollection */,
 				49C0447A1D997AB3008B1CBB /* SCSearchTable */,
 			);
 			name = SCShare;
@@ -217,6 +259,28 @@
 				49C0447C1D997AE8008B1CBB /* SCSearchTableView.m */,
 			);
 			name = SCSearchTable;
+			sourceTree = "<group>";
+		};
+		49C044991D9E845A008B1CBB /* SCFilesShareCollection */ = {
+			isa = PBXGroup;
+			children = (
+				49C0449A1D9E882D008B1CBB /* SCFilesShareCollection.h */,
+				49C0449B1D9E882D008B1CBB /* SCFilesShareCollection.m */,
+				49C044B01D9EA6D3008B1CBB /* SCFileCollectionViewCell.h */,
+				49C044B11D9EA6D3008B1CBB /* SCFileCollectionViewCell.m */,
+				49C044B21D9EA6D3008B1CBB /* SCFileCollectionViewCell.xib */,
+			);
+			name = SCFilesShareCollection;
+			sourceTree = "<group>";
+		};
+		49C044B51D9EAD8F008B1CBB /* SCCreateContactVC */ = {
+			isa = PBXGroup;
+			children = (
+				49C044B61D9EADC4008B1CBB /* SCCCreateContactViewController.h */,
+				49C044B71D9EADC4008B1CBB /* SCCCreateContactViewController.m */,
+				49C044B81D9EADC4008B1CBB /* SCCCreateContactViewController.xib */,
+			);
+			name = SCCreateContactVC;
 			sourceTree = "<group>";
 		};
 		B6D3F2C85C8372B6543A73F6 /* Pods */ = {
@@ -353,10 +417,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C044AD1D9EA50C008B1CBB /* g.jpg in Resources */,
 				49C044291D9534F4008B1CBB /* Assets.xcassets in Resources */,
+				49C044AF1D9EA50C008B1CBB /* i.jpg in Resources */,
+				49C044AC1D9EA50C008B1CBB /* f.jpg in Resources */,
+				49C044AE1D9EA50C008B1CBB /* h.jpg in Resources */,
+				49C044A71D9EA50C008B1CBB /* a.jpg in Resources */,
+				49C044BA1D9EADC4008B1CBB /* SCCCreateContactViewController.xib in Resources */,
+				49C044B41D9EA6D3008B1CBB /* SCFileCollectionViewCell.xib in Resources */,
+				49C044A91D9EA50C008B1CBB /* c.jpg in Resources */,
 				49C0448F1D9AABA3008B1CBB /* SCContactCollectionViewCell.xib in Resources */,
 				49C044891D9AA6A6008B1CBB /* SCSearchCollectionViewCell.xib in Resources */,
+				49C044AA1D9EA50C008B1CBB /* d.jpg in Resources */,
 				49C044591D9557AE008B1CBB /* SCShareViewController.xib in Resources */,
+				49C044AB1D9EA50C008B1CBB /* e.jpg in Resources */,
+				49C044A81D9EA50C008B1CBB /* b.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +581,9 @@
 			files = (
 				49C044211D9534F4008B1CBB /* AppDelegate.m in Sources */,
 				49C0445C1D9557E1008B1CBB /* SCShareNavigationController.m in Sources */,
+				49C044B31D9EA6D3008B1CBB /* SCFileCollectionViewCell.m in Sources */,
+				49C0449C1D9E882D008B1CBB /* SCFilesShareCollection.m in Sources */,
+				49C044B91D9EADC4008B1CBB /* SCCCreateContactViewController.m in Sources */,
 				49C044881D9AA6A6008B1CBB /* SCSearchCollectionViewCell.m in Sources */,
 				49C044981D9DA853008B1CBB /* NSString+search.m in Sources */,
 				49C0448E1D9AABA3008B1CBB /* SCContactCollectionViewCell.m in Sources */,

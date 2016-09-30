@@ -3,23 +3,25 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCShareViewController">
             <connections>
                 <outlet property="containerScrollView" destination="JKA-lR-14o" id="ZLi-st-AXz"/>
                 <outlet property="containerView" destination="U9O-lL-m4k" id="V4C-Co-aj1"/>
+                <outlet property="filesCollection" destination="dDV-e0-4Rd" id="DiU-MV-Mtj"/>
                 <outlet property="toContainerView" destination="ue6-aE-65k" id="q9P-fi-z1s"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="612"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKA-lR-14o">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="612"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ue6-aE-65k">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="36"/>
@@ -35,19 +37,59 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9O-lL-m4k">
-                            <rect key="frame" x="0.0" y="36" width="600" height="800"/>
+                            <rect key="frame" x="0.0" y="36" width="600" height="732"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xyu-jE-ypq">
-                                    <rect key="frame" x="13" y="8" width="42" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G1N-nc-tNg">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="646"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="646" id="Zlf-mo-6ie"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Zlf-mo-6ie"/>
+                                        </mask>
+                                    </variation>
+                                </textView>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="dDV-e0-4Rd" customClass="SCFilesShareCollection">
+                                    <rect key="frame" x="0.0" y="646" width="600" height="86"/>
+                                    <color key="backgroundColor" red="0.92631392045454541" green="0.18971408008643301" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="86" id="gYy-tb-tsk"/>
+                                    </constraints>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9Qh-bO-s1t">
+                                        <size key="itemSize" width="86" height="86"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
                             </subviews>
                             <color key="backgroundColor" white="0.90457956414473684" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="800" id="WMa-Uv-OYS"/>
+                                <constraint firstAttribute="trailing" secondItem="G1N-nc-tNg" secondAttribute="trailing" id="0iU-I1-u1J"/>
+                                <constraint firstItem="G1N-nc-tNg" firstAttribute="top" secondItem="U9O-lL-m4k" secondAttribute="top" id="B5I-nE-N0K"/>
+                                <constraint firstItem="G1N-nc-tNg" firstAttribute="leading" secondItem="U9O-lL-m4k" secondAttribute="leading" id="FV3-Cu-hOL"/>
+                                <constraint firstItem="dDV-e0-4Rd" firstAttribute="bottom" secondItem="U9O-lL-m4k" secondAttribute="bottomMargin" constant="8" id="HlP-7e-0ro"/>
+                                <constraint firstAttribute="bottom" secondItem="dDV-e0-4Rd" secondAttribute="bottom" constant="157" id="JKP-5p-kew"/>
+                                <constraint firstItem="G1N-nc-tNg" firstAttribute="leading" secondItem="dDV-e0-4Rd" secondAttribute="leading" id="MrS-gW-jCk"/>
+                                <constraint firstItem="G1N-nc-tNg" firstAttribute="top" secondItem="U9O-lL-m4k" secondAttribute="top" id="Rsu-jC-9VQ"/>
+                                <constraint firstAttribute="height" constant="732" id="WMa-Uv-OYS"/>
+                                <constraint firstAttribute="height" constant="732" id="dZj-zZ-Y8X"/>
+                                <constraint firstItem="dDV-e0-4Rd" firstAttribute="top" secondItem="G1N-nc-tNg" secondAttribute="bottom" id="hdr-Ab-nhs"/>
+                                <constraint firstItem="G1N-nc-tNg" firstAttribute="trailing" secondItem="dDV-e0-4Rd" secondAttribute="trailing" id="lG0-Md-grl"/>
+                                <constraint firstItem="dDV-e0-4Rd" firstAttribute="top" secondItem="G1N-nc-tNg" secondAttribute="bottom" id="ymT-41-vgK"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="WMa-Uv-OYS"/>
+                                    <exclude reference="B5I-nE-N0K"/>
+                                    <exclude reference="JKP-5p-kew"/>
+                                    <exclude reference="hdr-Ab-nhs"/>
+                                </mask>
+                            </variation>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.26576919169500313" green="1" blue="0.25624153029148233" alpha="1" colorSpace="calibratedRGB"/>

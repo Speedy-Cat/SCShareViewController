@@ -9,6 +9,7 @@
 #import "SCShareViewController.h"
 #import "KGKeyboardChangeManager.h"
 #import "Masonry.h"
+#import "SCFilesShareCollection.h"
 
 
 @interface SCShareViewController ()
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) SCMailsCollectionView *mailsCollectionView;
 @property (strong, nonatomic) NSMutableArray *contacts;
 @property (strong, nonatomic) SCSearchTableView *searchTableView;
+@property (weak, nonatomic) IBOutlet SCFilesShareCollection *filesCollection;
 
 @end
 
