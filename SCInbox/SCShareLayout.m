@@ -80,15 +80,15 @@
     return [[[NSAttributedString alloc] initWithString:string attributes:attributes] size].width;
 }
 
--(UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewLayoutAttributes* attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-    
-    CGRect cellFrame = CGRectMake(0, 0, 100, 100);;
-    attr.frame = cellFrame;
-    
-    return attr;
-}
+//-(UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UICollectionViewLayoutAttributes* attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+//    
+//    CGRect cellFrame = CGRectMake(0, 0, 100, 100);;
+//    attr.frame = cellFrame;
+//    
+//    return attr;
+//}
 
 
 @end

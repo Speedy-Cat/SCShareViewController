@@ -10,6 +10,7 @@
 
 @interface SCCCreateContactViewController ()
 
+
 @end
 
 @implementation SCCCreateContactViewController
@@ -17,11 +18,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.emailTextField.delegate = self;
+    self.firstNameTextField.delegate = self;
+    self.lastNameTextField.delegate = self;
+    self.companyTextField.delegate = self;
+    
+    self.createButton.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if([_emailTextField.text length] && [_firstNameTextField.text length] && [_lastNameTextField.text length] && [_companyTextField.text length]){
+        self.createButton.enabled = YES;
+    }
+    
+    return YES;
+}
+- (IBAction)createAction:(id)sender {
+    NSDictionary *contact = @{
+                              @"mail":_emailTextField.text,
+                              @"name":@""
+                              };
+    
+    if([self.createContactDelegate respondsToSelector:@selector(didCreateContact:)]) {
+        [self.createContactDelegate didCreateContact:contact];
+    }
 }
 
 /*

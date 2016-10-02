@@ -74,7 +74,7 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    UICollectionViewCell *cell = [[textField superview] superview];
+    UICollectionViewCell *cell = (UICollectionViewCell*)[[textField superview] superview];
     
     NSString * proposedNewString = [[textField text] stringByReplacingCharactersInRange:range withString:string];
     

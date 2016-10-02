@@ -20,6 +20,8 @@
 @property (strong, nonatomic) NSMutableArray *contacts;
 @property (strong, nonatomic) SCSearchTableView *searchTableView;
 @property (weak, nonatomic) IBOutlet SCFilesShareCollection *filesCollection;
+@property (nonatomic, strong) SCCCreateContactViewController *createContactVC;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -72,6 +74,14 @@
     self.searchTableView.delegate = self;
     [self.containerView addSubview:self.searchTableView];
 
+    
+    // create contact vc
+    self.createContactVC = [SCCCreateContactViewController new];
+    self.createContactVC.createContactDelegate = self;
+    [self.containerView addSubview:self.createContactVC.view];
+    self.createContactVC.view.hidden = YES;
+    [self addChildViewController:self.createContactVC];
+    
     
     //
     // keyboard observers
@@ -131,6 +141,13 @@
     [self.searchTableView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.containerView);
     }];
+    
+    [self.createContactVC.view mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.containerView);
+        make.bottom.equalTo(self.containerView);
+        make.right.equalTo(self.containerView).with.offset(-170);
+        make.left.equalTo(self.containerView).with.offset(170);
+    }];
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -164,6 +181,24 @@
     
     NSArray *result = [self searchEmailWithString:mailText];
     self.searchTableView.contacts = result;
+    
+    
+    if(!result.count){
+        // create contact
+        self.createContactVC.view.hidden = NO;
+        
+        self.createContactVC.emailTextField.text = mailText;
+        
+        //
+        //self.searchTableView.hidden = YES;
+        //self.textView.hidden =YES;
+    }
+    else{
+        self.createContactVC.view.hidden = YES;
+        self.searchTableView.hidden = NO;
+        self.textView.hidden = NO;
+    }
+    
     [self.searchTableView reloadData];
 }
 
@@ -194,6 +229,19 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.mail CONTAINS %@ || self.name CONTAINS %@", string, string];
     NSArray *result = [self.contacts filteredArrayUsingPredicate:predicate];
     return result;
+}
+
+#pragma mark - create contact delegate
+
+-(void)didCreateContact:(NSDictionary *)contact
+{
+    // add contact to mail collecion
+    if([self.mailsCollectionView addContact:contact]){
+        // remove contact from search table
+        self.searchTableView.hidden = YES;
+        self.createContactVC.view.hidden = YES;
+        [self.contacts removeObject:contact];
+    }
 }
 
 

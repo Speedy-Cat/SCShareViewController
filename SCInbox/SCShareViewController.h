@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SCMailsCollectionView.h"
 #import "SCSearchTableView.h"
+#import "SCCCreateContactViewController.h"
 
-@interface SCShareViewController : UIViewController <UITextFieldDelegate, SCMailsCollectionDelegate, UITableViewDelegate>
+@interface SCShareViewController : UIViewController <UITextFieldDelegate, SCMailsCollectionDelegate, UITableViewDelegate, SCCreateContactDelegate>
 
 @end
