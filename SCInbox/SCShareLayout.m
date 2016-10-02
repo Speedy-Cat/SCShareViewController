@@ -20,18 +20,18 @@
 -(CGSize)collectionViewContentSize
 {
     
-    CGFloat width;
+    CGFloat height;
     NSArray *layoutAttributes = self.layoutAttributes;
     if(layoutAttributes.count){
         UICollectionViewLayoutAttributes *lastatt = (UICollectionViewLayoutAttributes*)layoutAttributes[layoutAttributes.count - 1];
-        width = lastatt.frame.origin.x + lastatt.frame.size.width;
+        height = lastatt.frame.origin.y + lastatt.frame.size.height;
     }
     else{
-        width = 0;
+        height = self.collectionView.frame.size.height;
     }
     
     
-    return CGSizeMake(width, self.collectionView.frame.size.height);
+    return CGSizeMake(self.collectionView.frame.size.width, height);
 }
 
 
@@ -88,24 +88,42 @@
             CGFloat height = self.collectionView.frame.size.height;
             CGFloat width;
             
-            int marginRight = 3;
+            //int marginRight = 3;
             
             
             if([contact isKindOfClass:[NSString class]]){
                 // search cell
                 if (lastAtt) {
-                    x = lastAtt.frame.origin.x + lastAtt.frame.size.width + marginRight;
-                    y = 0;
                     width = ^int(){
-                        int width = self.collectionView.frame.size.width - lastAtt.frame.size.width - lastAtt.frame.origin.x - marginRight;
+                        int width = self.collectionView.frame.size.width - lastAtt.frame.size.width - lastAtt.frame.origin.x;
                         
                         if (width < 200 ) {
-                             return  200;
+                            return  200;
                         }
                         else{
                             return width;
                         }
                     }();
+                    
+                    __block BOOL nextRow;
+                    
+                    x = ^int(){
+                        int result = lastAtt.frame.origin.x + lastAtt.frame.size.width;
+                        if (result + width > self.collectionView.frame.size.width) {
+                            result = 0;
+                            nextRow = YES;
+                        }
+                        return result;
+                    }();
+                    y = ^int(){
+                        if (nextRow) {
+                            return lastAtt.frame.origin.y + self.collectionView.frame.size.height;
+                        }
+                        else{
+                            return lastAtt.frame.origin.y;
+                        }
+                    }();
+                    
                 }
                 else{
                     x = 0;
@@ -123,8 +141,26 @@
                 
                 
                 if (lastAtt) {
-                    x = lastAtt.frame.origin.x + lastAtt.frame.size.width + marginRight;
-                    y = 0;
+                    __block BOOL nextRow;
+                    
+                    x = ^int(){
+                        int result = lastAtt.frame.origin.x + lastAtt.frame.size.width;
+                        if (result + width > self.collectionView.frame.size.width) {
+                            result = 0;
+                            nextRow = YES;
+                        }
+                        
+                        return result;
+                    }();
+                    
+                    y = ^int(){
+                        if (nextRow) {
+                            return lastAtt.frame.origin.y + self.collectionView.frame.size.height;
+                        }
+                        else{
+                            return lastAtt.frame.origin.y;
+                        }
+                    }();
                 }
                 else{
                     x = 0;
