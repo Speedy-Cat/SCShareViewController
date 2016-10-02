@@ -51,7 +51,7 @@
             NSString *mail = [((NSDictionary*)contact) objectForKey:@"mail"];
             
             CGFloat size = [self widthOfString:mail withFont:[UIFont fontWithName:@"Helvetica" size:16]];
-            CGFloat padding = 4 * 2;
+            CGFloat padding = 8 * 2;
             
             CGRect cellFrame;
             if (lastAtt) {

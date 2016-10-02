@@ -18,24 +18,37 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1L-Tx-gno">
-                        <rect key="frame" x="4" y="0.0" width="239" height="38"/>
-                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doH-J1-9Lj">
+                        <rect key="frame" x="0.0" y="4" width="247" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1L-Tx-gno">
+                                <rect key="frame" x="8" y="0.0" width="231" height="30"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.047942467033863068" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="x1L-Tx-gno" secondAttribute="trailing" constant="8" id="3Yv-UF-Ggq"/>
+                            <constraint firstAttribute="bottom" secondItem="x1L-Tx-gno" secondAttribute="bottom" id="6T8-Ct-Ni0"/>
+                            <constraint firstItem="x1L-Tx-gno" firstAttribute="top" secondItem="doH-J1-9Lj" secondAttribute="top" id="KXf-CL-BME"/>
+                            <constraint firstItem="x1L-Tx-gno" firstAttribute="leading" secondItem="doH-J1-9Lj" secondAttribute="leading" constant="8" id="WBj-By-V3P"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="x1L-Tx-gno" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="Feg-zz-bJA"/>
-                <constraint firstAttribute="trailing" secondItem="x1L-Tx-gno" secondAttribute="trailing" constant="4" id="c7Q-7H-TbA"/>
-                <constraint firstAttribute="bottom" secondItem="x1L-Tx-gno" secondAttribute="bottom" id="rOG-TS-hPc"/>
-                <constraint firstItem="x1L-Tx-gno" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ylR-PB-Y71"/>
+                <constraint firstItem="doH-J1-9Lj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="18a-1F-W1Z"/>
+                <constraint firstItem="doH-J1-9Lj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1V2-eG-at2"/>
+                <constraint firstAttribute="trailing" secondItem="doH-J1-9Lj" secondAttribute="trailing" id="4Af-xn-GTQ"/>
+                <constraint firstAttribute="bottom" secondItem="doH-J1-9Lj" secondAttribute="bottom" constant="4" id="Qzv-VX-Y9E"/>
             </constraints>
             <size key="customSize" width="247" height="38"/>
             <connections>
                 <outlet property="label" destination="x1L-Tx-gno" id="uF3-MR-Iay"/>
+                <outlet property="roundview" destination="doH-J1-9Lj" id="1tI-u9-xQf"/>
                 <outlet property="textField" destination="7kJ-a7-dmn" id="95z-HT-43x"/>
             </connections>
             <point key="canvasLocation" x="418.5" y="446"/>

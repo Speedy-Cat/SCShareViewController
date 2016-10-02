@@ -64,7 +64,7 @@
         
         SCContactCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"contactCell" forIndexPath:indexPath];
         cell.label.text = [((NSDictionary*)contact) objectForKey:@"mail"];
-        cell.backgroundColor = [UIColor greenColor];
+        cell.textField.delegate = self;
         
         return cell;
     }
@@ -92,6 +92,18 @@
             [self.SCMailsDelegate mailCollectionRemoveContact:contact];
         }
     }
+    else{
+        // SCSearchCollectionViewCell
+        // deselect cells
+        NSArray *selectItems = self.indexPathsForSelectedItems;
+        if (selectItems.count) {
+            NSIndexPath *selectCellIndex = (NSIndexPath*)selectItems[0];
+            [self deselectItemAtIndexPath:selectCellIndex animated:NO];
+            SCContactCollectionViewCell *cell = (SCContactCollectionViewCell*)[self cellForItemAtIndexPath:selectCellIndex];
+            cell.roundview.backgroundColor = [UIColor whiteColor];
+            cell.label.textColor = [UIColor blueColor];
+        }
+    }
     
     if([self.SCMailsDelegate respondsToSelector:@selector(mailCollectionChangeMailText:)]) {
         [self.SCMailsDelegate mailCollectionChangeMailText:proposedNewString];
@@ -115,35 +127,21 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
-    [((SCContactCollectionViewCell*)datasetCell).textField becomeFirstResponder];
-    ((SCContactCollectionViewCell*)datasetCell).textField.delegate = self;
-    
-    datasetCell.backgroundColor = [UIColor blueColor];
+    SCContactCollectionViewCell *datasetCell = (SCContactCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
     
     
-//    if(datasetCell.selected){
-//        datasetCell.selected = NO;
-//        datasetCell.backgroundColor = [UIColor clearColor];
-//    }
-//    else{
-//        datasetCell.selected = YES;
-//        datasetCell.backgroundColor = [UIColor blueColor];
-//    }
+    datasetCell.roundview.backgroundColor = [UIColor blueColor];
+    datasetCell.label.textColor = [UIColor whiteColor];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
-//    datasetCell.backgroundColor = [UIColor clearColor];
-//    NSLog(@"");
+    SCContactCollectionViewCell *datasetCell = (SCContactCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+
+    datasetCell.roundview.backgroundColor = [UIColor whiteColor];
+    datasetCell.label.textColor = [UIColor blueColor];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
-//    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-//    cell.backgroundColor = [UIColor blackColor];
-}
 
 #pragma mark - helper functions
 
@@ -153,7 +151,7 @@
         return NO;
     }
     else{
-        [self.contacts insertObject:contact atIndex:self.contacts.count - 1];
+        [self.contacts insertObject:contact atIndex:0];
         self.searchTextfield.text = @"";
         [self insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
         return YES;

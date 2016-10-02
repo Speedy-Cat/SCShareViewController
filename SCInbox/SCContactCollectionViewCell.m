@@ -13,6 +13,17 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    
+    self.label.textColor = [UIColor whiteColor];
+    [self.roundview.layer setCornerRadius:15.0f];
+    
+    self.roundview.layer.borderWidth = 1;
+    
+    self.roundview.backgroundColor = [UIColor whiteColor];
+    self.label.textColor =[UIColor blueColor];
+    self.roundview.layer.borderColor = [UIColor blueColor].CGColor;//UIColor.redColor().CGColor
+    
 }
 
 @end
