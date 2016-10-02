@@ -9,14 +9,34 @@
 #import "SCShareLayout.h"
 #import "SCMailsCollectionView.h"
 
+@interface SCShareLayout ()
+
+@property (nonatomic, strong) NSArray *layoutAttributes;
+
+@end
+
 @implementation SCShareLayout
 
 -(CGSize)collectionViewContentSize
 {
-    return self.collectionView.frame.size;
+    
+    CGFloat width;
+    NSArray *layoutAttributes = self.layoutAttributes;
+    if(layoutAttributes.count){
+        UICollectionViewLayoutAttributes *lastatt = (UICollectionViewLayoutAttributes*)layoutAttributes[layoutAttributes.count - 1];
+        width = lastatt.frame.origin.x + lastatt.frame.size.width;
+    }
+    else{
+        width = 0;
+    }
+    
+    
+    
+    
+    return CGSizeMake(width, self.collectionView.frame.size.height);
 }
 
--(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
+-(NSArray *)layoutAttributes
 {
     NSMutableArray* elementsInRect = [NSMutableArray array];
     
@@ -64,12 +84,29 @@
             }
         }
         
+        
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         UICollectionViewLayoutAttributes* attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
         attr.frame = cellFrame;
         [elementsInRect addObject:attr];
         
+    }
+    
+    return elementsInRect;
+}
+
+-(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
+{
+    NSMutableArray* elementsInRect = [NSMutableArray array];
+    NSArray *layoutAttributes = self.layoutAttributes;
+    
+    for(NSUInteger i = 0; i < layoutAttributes.count; i++){
         
+        UICollectionViewLayoutAttributes *attribute = (UICollectionViewLayoutAttributes*)layoutAttributes[i];
+        if(CGRectIntersectsRect(attribute.frame, rect))
+        {
+            [elementsInRect addObject:attribute];
+        }
     }
     
     return elementsInRect;
@@ -80,15 +117,13 @@
     return [[[NSAttributedString alloc] initWithString:string attributes:attributes] size].width;
 }
 
-//-(UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    UICollectionViewLayoutAttributes* attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-//    
-//    CGRect cellFrame = CGRectMake(0, 0, 100, 100);;
-//    attr.frame = cellFrame;
-//    
-//    return attr;
-//}
+-(UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewLayoutAttributes* attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    
+    
+    return attr;
+}
 
 
 @end
