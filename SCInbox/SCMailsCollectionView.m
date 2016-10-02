@@ -63,7 +63,9 @@
     else{
         
         SCContactCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"contactCell" forIndexPath:indexPath];
-        cell.label.text = [((NSDictionary*)contact) objectForKey:@"mail"];
+        NSString *mail = [((NSDictionary*)contact) objectForKey:@"mail"];
+        cell.label.text = mail;
+        cell.textField.text = mail;
         cell.textField.delegate = self;
         
         return cell;
@@ -128,7 +130,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     SCContactCollectionViewCell *datasetCell = (SCContactCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    
+    [datasetCell.textField becomeFirstResponder];
     
     datasetCell.roundview.backgroundColor = [UIColor blueColor];
     datasetCell.label.textColor = [UIColor whiteColor];

@@ -60,7 +60,7 @@
     // mails collection
     //
     self.mailsCollectionView = [[SCMailsCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.toContainerView.frame.size.width, self.toContainerView.frame.size.height)];
-    self.mailsCollectionView.backgroundColor = [UIColor redColor];
+    self.mailsCollectionView.backgroundColor = [UIColor whiteColor];
     self.mailsCollectionView.SCMailsDelegate = self;
     [self.toContainerView addSubview:self.mailsCollectionView];
     

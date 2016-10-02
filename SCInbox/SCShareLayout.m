@@ -28,12 +28,16 @@
             lastAtt = elementsInRect[i - 1];
         }
         
+        CGRect cellFrame;
+        
+        int marginRight = 3;
+        
         if([contact isKindOfClass:[NSString class]]){
             
-            CGRect cellFrame;
+            
             
             if (lastAtt) {
-                CGFloat x = lastAtt.frame.origin.x + lastAtt.frame.size.width;
+                CGFloat x = lastAtt.frame.origin.x + lastAtt.frame.size.width + marginRight;
                 CGFloat width = self.collectionView.frame.size.width - lastAtt.frame.size.width;
                 cellFrame = CGRectMake(x, 0, width, self.collectionView.frame.size.height);
             }
@@ -41,10 +45,6 @@
                 cellFrame = CGRectMake(0, 0, self.collectionView.frame.size.width, self.collectionView.frame.size.height);
             }
             
-            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-            UICollectionViewLayoutAttributes* attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-            attr.frame = cellFrame;
-            [elementsInRect addObject:attr];
             
         }
         else{
@@ -53,22 +53,21 @@
             CGFloat size = [self widthOfString:mail withFont:[UIFont fontWithName:@"Helvetica" size:16]];
             CGFloat padding = 8 * 2;
             
-            CGRect cellFrame;
+            
+            
             if (lastAtt) {
-                CGFloat x = lastAtt.frame.origin.x + lastAtt.frame.size.width;
+                CGFloat x = lastAtt.frame.origin.x + lastAtt.frame.size.width + marginRight;
                 cellFrame = CGRectMake(x, 0, size + padding, self.collectionView.frame.size.height);
             }
             else{
                 cellFrame = CGRectMake(0, 0, size + padding, self.collectionView.frame.size.height);
             }
-            
-            
-            
-            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-            UICollectionViewLayoutAttributes* attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-            attr.frame = cellFrame;
-            [elementsInRect addObject:attr];
         }
+        
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        UICollectionViewLayoutAttributes* attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+        attr.frame = cellFrame;
+        [elementsInRect addObject:attr];
         
         
     }
