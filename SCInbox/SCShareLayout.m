@@ -68,57 +68,77 @@
 
 -(NSArray *)layoutAttributes
 {
-    NSMutableArray* elementsInRect = [NSMutableArray array];
+    NSMutableArray <UICollectionViewLayoutAttributes*> *elementsInRect = [NSMutableArray array];
     NSArray *contacts = ((SCMailsCollectionView *)self.collectionView).contacts;
     
     for(NSUInteger i = 0; i < contacts.count; i++){
+        
         id contact = contacts[i];
         
-        UICollectionViewLayoutAttributes *lastAtt;
-        if(elementsInRect.count){
-            lastAtt = elementsInRect[i - 1];
-        }
+        // last attribute
+        UICollectionViewLayoutAttributes *lastAtt = ^UICollectionViewLayoutAttributes *(NSArray<UICollectionViewLayoutAttributes *> *attributes){
+                return (attributes.count)?attributes[i - 1]:nil;
+        }(elementsInRect);
         
-        CGRect cellFrame;
-        
-        int marginRight = 3;
-        
-        if([contact isKindOfClass:[NSString class]]){
+        // calculate the frame
+        CGRect cellFrame = ^CGRect(id contact, UICollectionViewLayoutAttributes *lastAtt){
+            
+            CGFloat x;
+            CGFloat y;
+            CGFloat height = self.collectionView.frame.size.height;
+            CGFloat width;
+            
+            int marginRight = 3;
             
             
-            
-            if (lastAtt) {
-                CGFloat x = lastAtt.frame.origin.x + lastAtt.frame.size.width + marginRight;
-                CGFloat width = self.collectionView.frame.size.width - lastAtt.frame.size.width - lastAtt.frame.origin.x - marginRight;
-                if (width < 200 ) {
-                    width = 200;
+            if([contact isKindOfClass:[NSString class]]){
+                // search cell
+                if (lastAtt) {
+                    x = lastAtt.frame.origin.x + lastAtt.frame.size.width + marginRight;
+                    y = 0;
+                    width = ^int(){
+                        int width = self.collectionView.frame.size.width - lastAtt.frame.size.width - lastAtt.frame.origin.x - marginRight;
+                        
+                        if (width < 200 ) {
+                             return  200;
+                        }
+                        else{
+                            return width;
+                        }
+                    }();
                 }
-                cellFrame = CGRectMake(x, 0, width, self.collectionView.frame.size.height);
+                else{
+                    x = 0;
+                    y = 0;
+                    width = self.collectionView.frame.size.width;
+                }
             }
             else{
-                cellFrame = CGRectMake(0, 0, self.collectionView.frame.size.width, self.collectionView.frame.size.height);
+                // contact cell
+                width = ^int(){
+                    NSString *mail = [((NSDictionary*)contact) objectForKey:@"mail"];
+                    CGFloat padding = 8 * 2;
+                    return [self widthOfString:mail withFont:[UIFont fontWithName:@"Helvetica" size:16]] + padding;
+                }();
+                
+                
+                if (lastAtt) {
+                    x = lastAtt.frame.origin.x + lastAtt.frame.size.width + marginRight;
+                    y = 0;
+                }
+                else{
+                    x = 0;
+                    y = 0;
+                }
             }
             
+            return CGRectMake(x, y, width, height);
             
-        }
-        else{
-            NSString *mail = [((NSDictionary*)contact) objectForKey:@"mail"];
-            
-            CGFloat size = [self widthOfString:mail withFont:[UIFont fontWithName:@"Helvetica" size:16]];
-            CGFloat padding = 8 * 2;
-            
-            
-            
-            if (lastAtt) {
-                CGFloat x = lastAtt.frame.origin.x + lastAtt.frame.size.width + marginRight;
-                cellFrame = CGRectMake(x, 0, size + padding, self.collectionView.frame.size.height);
-            }
-            else{
-                cellFrame = CGRectMake(0, 0, size + padding, self.collectionView.frame.size.height);
-            }
-        }
+        }(contact, lastAtt);
         
         
+        
+        //
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         UICollectionViewLayoutAttributes* attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
         attr.frame = cellFrame;
