@@ -10,6 +10,7 @@
 #import "SCShareLayout.h"
 #import "SCSearchCollectionViewCell.h"
 #import "SCContactCollectionViewCell.h"
+#import "Masonry.h"
 
 @interface SCMailsCollectionView ()
 
@@ -156,6 +157,7 @@
         [self.contacts insertObject:contact atIndex:0];
         self.searchTextfield.text = @"";
         [self insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
+        
         return YES;
     }
 }

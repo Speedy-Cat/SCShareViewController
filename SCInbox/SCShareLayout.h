@@ -10,4 +10,6 @@
 
 @interface SCShareLayout : UICollectionViewLayout
 
+@property (nonatomic, strong) NSArray *layoutAttributes;
+
 @end

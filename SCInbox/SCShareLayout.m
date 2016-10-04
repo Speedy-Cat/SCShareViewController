@@ -9,9 +9,9 @@
 #import "SCShareLayout.h"
 #import "SCMailsCollectionView.h"
 
-@interface SCShareLayout ()
+#define ROW_HEIGHT 35
 
-@property (nonatomic, strong) NSArray *layoutAttributes;
+@interface SCShareLayout ()
 
 @end
 
@@ -27,9 +27,8 @@
         height = lastatt.frame.origin.y + lastatt.frame.size.height;
     }
     else{
-        height = self.collectionView.frame.size.height;
+        height = ROW_HEIGHT;
     }
-    
     
     return CGSizeMake(self.collectionView.frame.size.width, height);
 }
@@ -85,7 +84,7 @@
             
             CGFloat x;
             CGFloat y;
-            CGFloat height = self.collectionView.frame.size.height;
+            CGFloat height = ROW_HEIGHT;
             CGFloat width;
             
             //int marginRight = 3;
@@ -117,7 +116,7 @@
                     }();
                     y = ^int(){
                         if (nextRow) {
-                            return lastAtt.frame.origin.y + self.collectionView.frame.size.height;
+                            return lastAtt.frame.origin.y + ROW_HEIGHT;
                         }
                         else{
                             return lastAtt.frame.origin.y;
@@ -155,7 +154,7 @@
                     
                     y = ^int(){
                         if (nextRow) {
-                            return lastAtt.frame.origin.y + self.collectionView.frame.size.height;
+                            return lastAtt.frame.origin.y + ROW_HEIGHT;
                         }
                         else{
                             return lastAtt.frame.origin.y;

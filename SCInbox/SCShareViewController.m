@@ -241,6 +241,23 @@
         self.searchTableView.hidden = YES;
         self.createContactVC.view.hidden = YES;
         [self.contacts removeObject:contact];
+        
+        // if is necesary set frame
+        
+        UICollectionViewCell *lastcell = [self.mailsCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.self.mailsCollectionView.contacts.count - 1 inSection:0]];
+        CGFloat height = lastcell.frame.origin.y + lastcell.frame.size.height;
+        
+        [self.view bringSubviewToFront:self.toContainerView];
+        self.toContainerView.backgroundColor = [UIColor redColor];
+        [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(height + 1));
+        }];
+        
+        [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(@(height+1));
+        }];
+        
+        
     }
 }
 

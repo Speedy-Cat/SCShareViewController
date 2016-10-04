@@ -24,40 +24,9 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKA-lR-14o">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ue6-aE-65k">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="36"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFU-sX-nUJ" userLabel="border">
-                                    <rect key="frame" x="0.0" y="35" width="600" height="1"/>
-                                    <color key="backgroundColor" white="0.68963301809210531" alpha="1" colorSpace="calibratedWhite"/>
-                                </view>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="UFU-sX-nUJ" secondAttribute="bottom" id="By8-R0-BzJ"/>
-                                <constraint firstAttribute="trailing" secondItem="UFU-sX-nUJ" secondAttribute="trailing" id="K8x-8e-VqO"/>
-                                <constraint firstItem="UFU-sX-nUJ" firstAttribute="top" secondItem="ue6-aE-65k" secondAttribute="top" constant="35" id="bEd-bY-3N2"/>
-                                <constraint firstAttribute="height" constant="36" id="hDT-vO-mpQ"/>
-                                <constraint firstItem="UFU-sX-nUJ" firstAttribute="leading" secondItem="ue6-aE-65k" secondAttribute="leading" id="i7y-bY-xyJ"/>
-                            </constraints>
-                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9O-lL-m4k">
                             <rect key="frame" x="0.0" y="36" width="600" height="732"/>
                             <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G1N-nc-tNg">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="646"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="646" id="Zlf-mo-6ie"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="Zlf-mo-6ie"/>
-                                        </mask>
-                                    </variation>
-                                </textView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="dDV-e0-4Rd" customClass="SCFilesShareCollection">
                                     <rect key="frame" x="0.0" y="646" width="600" height="86"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -71,30 +40,51 @@
                                         <inset key="sectionInset" minX="14" minY="0.0" maxX="3" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G1N-nc-tNg">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="646"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="646" id="Zlf-mo-6ie"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Zlf-mo-6ie"/>
+                                        </mask>
+                                    </variation>
+                                </textView>
                             </subviews>
                             <color key="backgroundColor" white="0.90457956414473684" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="G1N-nc-tNg" secondAttribute="trailing" id="0iU-I1-u1J"/>
-                                <constraint firstItem="G1N-nc-tNg" firstAttribute="top" secondItem="U9O-lL-m4k" secondAttribute="top" id="B5I-nE-N0K"/>
+                                <constraint firstAttribute="height" constant="732" id="35Y-gT-0xE"/>
                                 <constraint firstItem="G1N-nc-tNg" firstAttribute="leading" secondItem="U9O-lL-m4k" secondAttribute="leading" id="FV3-Cu-hOL"/>
                                 <constraint firstItem="dDV-e0-4Rd" firstAttribute="bottom" secondItem="U9O-lL-m4k" secondAttribute="bottomMargin" constant="8" id="HlP-7e-0ro"/>
-                                <constraint firstAttribute="bottom" secondItem="dDV-e0-4Rd" secondAttribute="bottom" constant="157" id="JKP-5p-kew"/>
                                 <constraint firstItem="G1N-nc-tNg" firstAttribute="leading" secondItem="dDV-e0-4Rd" secondAttribute="leading" id="MrS-gW-jCk"/>
                                 <constraint firstItem="G1N-nc-tNg" firstAttribute="top" secondItem="U9O-lL-m4k" secondAttribute="top" id="Rsu-jC-9VQ"/>
-                                <constraint firstAttribute="height" constant="732" id="WMa-Uv-OYS"/>
-                                <constraint firstAttribute="height" constant="732" id="dZj-zZ-Y8X"/>
-                                <constraint firstItem="dDV-e0-4Rd" firstAttribute="top" secondItem="G1N-nc-tNg" secondAttribute="bottom" id="hdr-Ab-nhs"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="732" id="dZj-zZ-Y8X"/>
                                 <constraint firstItem="G1N-nc-tNg" firstAttribute="trailing" secondItem="dDV-e0-4Rd" secondAttribute="trailing" id="lG0-Md-grl"/>
                                 <constraint firstItem="dDV-e0-4Rd" firstAttribute="top" secondItem="G1N-nc-tNg" secondAttribute="bottom" id="ymT-41-vgK"/>
                             </constraints>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="WMa-Uv-OYS"/>
-                                    <exclude reference="B5I-nE-N0K"/>
-                                    <exclude reference="JKP-5p-kew"/>
-                                    <exclude reference="hdr-Ab-nhs"/>
-                                </mask>
-                            </variation>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ue6-aE-65k">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="36"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFU-sX-nUJ" userLabel="border">
+                                    <rect key="frame" x="0.0" y="35" width="600" height="1"/>
+                                    <color key="backgroundColor" white="0.68963301809210531" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="UFU-sX-nUJ" secondAttribute="bottom" id="By8-R0-BzJ"/>
+                                <constraint firstAttribute="height" constant="36" id="CfX-en-g7g"/>
+                                <constraint firstAttribute="trailing" secondItem="UFU-sX-nUJ" secondAttribute="trailing" id="K8x-8e-VqO"/>
+                                <constraint firstItem="UFU-sX-nUJ" firstAttribute="top" secondItem="ue6-aE-65k" secondAttribute="top" constant="35" id="bEd-bY-3N2"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="hDT-vO-mpQ"/>
+                                <constraint firstItem="UFU-sX-nUJ" firstAttribute="leading" secondItem="ue6-aE-65k" secondAttribute="leading" id="i7y-bY-xyJ"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
