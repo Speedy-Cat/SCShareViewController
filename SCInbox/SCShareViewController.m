@@ -200,6 +200,9 @@
     self.searchTableView.contacts = result;
     
     
+    [self toCollectionOneLineLayout];
+    
+    
     if(!result.count){
         // create contact
         self.createContactVC.view.hidden = NO;
@@ -233,22 +236,7 @@
 -(void)toTextFieldDidEndEditing
 {
  
-    int keyboardHeight = 352;
-    int screenHeight = 768;
-    int toViewHeight = 36;
-    
-    [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(toViewHeight));
-    }];
-    
-    [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@(toViewHeight));
-        //make.height.equalTo(@(screenHeight - toViewHeight - keyboardHeight));
-    }];
-    
-    [self.filesCollection mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.containerView);
-    }];
+    [self toCollectionOneLineLayout];
 }
 
 -(void)toTextFieldShouldBeginEditing
@@ -350,6 +338,37 @@
         }];
     }
     
+}
+
+-(void)toCollectionOneLineLayout
+{
+    if(self.mailsCollectionView.frame.size.height == 36){
+        return;
+    }
+    
+    
+    int keyboardHeight = 352;
+    int screenHeight = 768;
+    int toViewHeight = 36;
+    
+    [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(toViewHeight));
+    }];
+    
+    [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@(toViewHeight));
+        //make.height.equalTo(@(screenHeight - toViewHeight - keyboardHeight));
+    }];
+    
+    [self.filesCollection mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.containerView);
+    }];
+    
+    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 0.1);
+    dispatch_after(delay, dispatch_get_main_queue(), ^(void){
+        NSIndexPath *index  = [NSIndexPath indexPathForRow:self.mailsCollectionView.contacts.count - 1 inSection:0];
+        [self.mailsCollectionView scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+    });
 }
 
 

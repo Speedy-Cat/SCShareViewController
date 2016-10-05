@@ -69,6 +69,14 @@
         cell.textField.text = mail;
         cell.textField.delegate = self;
         
+        if (cell.isSelected) {
+            cell.roundview.backgroundColor = [UIColor blueColor];
+            cell.label.textColor = [UIColor whiteColor];
+        }
+        else{
+            cell.roundview.backgroundColor = [UIColor whiteColor];
+            cell.label.textColor = [UIColor blueColor];
+        }
         return cell;
     }
 }
@@ -161,6 +169,7 @@
     SCContactCollectionViewCell *datasetCell = (SCContactCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
     [datasetCell.textField becomeFirstResponder];
     
+    
     datasetCell.roundview.backgroundColor = [UIColor blueColor];
     datasetCell.label.textColor = [UIColor whiteColor];
 }
@@ -169,6 +178,7 @@
 {
     SCContactCollectionViewCell *datasetCell = (SCContactCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
 
+    
     datasetCell.roundview.backgroundColor = [UIColor whiteColor];
     datasetCell.label.textColor = [UIColor blueColor];
 }

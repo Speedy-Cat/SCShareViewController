@@ -83,7 +83,7 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXi-km-iCQ" userLabel="border">
                                     <rect key="frame" x="0.0" y="35" width="600" height="1"/>
-                                    <color key="backgroundColor" red="0.2389826802061959" green="0.75457702020202011" blue="0.28131166150322412" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="qVe-4L-5T8"/>
                                     </constraints>
