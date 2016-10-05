@@ -54,10 +54,10 @@
 
 -(UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewLayoutAttributes* attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    NSArray *atts = [self layoutAttributes];
     
     
-    return attr;
+    return atts[indexPath.row];
 }
 
 - (CGFloat)widthOfString:(NSString *)string withFont:(UIFont *)font {

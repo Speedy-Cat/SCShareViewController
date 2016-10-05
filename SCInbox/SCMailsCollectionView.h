@@ -14,6 +14,10 @@
 
 -(void)mailCollectionRemoveContact:(NSDictionary*)contact;
 
+-(void)toTextFieldDidEndEditing;
+
+-(void)toTextFieldShouldBeginEditing;
+
 @end
 
 @interface SCMailsCollectionView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate>

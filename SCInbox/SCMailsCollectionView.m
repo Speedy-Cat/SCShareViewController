@@ -55,7 +55,7 @@
         SCSearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchCell" forIndexPath:indexPath];
         
         self.searchTextfield = cell.toTextField;
-        [cell.toTextField becomeFirstResponder];
+        
         cell.toTextField.delegate = self;
         
         return cell;
@@ -73,6 +73,8 @@
     }
 }
 
+#pragma mark - text field delegate
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     UICollectionViewCell *cell = (UICollectionViewCell*)[[textField superview] superview];
@@ -89,6 +91,9 @@
         [self.contacts removeObject:contact];
         [self deleteItemsAtIndexPaths:@[indexPath]];
         [self.searchTextfield becomeFirstResponder];
+        
+        // proposed
+        proposedNewString = string;
         
         // notify removed contact
         if([self.SCMailsDelegate respondsToSelector:@selector(mailCollectionRemoveContact:)]) {
@@ -126,6 +131,29 @@
     return result;
 }
 
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    UICollectionViewCell *cell = (UICollectionViewCell*)[[textField superview] superview];
+    if([cell isKindOfClass:[SCSearchCollectionViewCell class]]){
+        if([self.SCMailsDelegate respondsToSelector:@selector(toTextFieldDidEndEditing)]) {
+            [self.SCMailsDelegate toTextFieldDidEndEditing];
+        }
+    }
+    
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    UICollectionViewCell *cell = (UICollectionViewCell*)[[textField superview] superview];
+    if([cell isKindOfClass:[SCSearchCollectionViewCell class]]){
+        if([self.SCMailsDelegate respondsToSelector:@selector(toTextFieldShouldBeginEditing)]) {
+            [self.SCMailsDelegate toTextFieldShouldBeginEditing];
+        }
+    }
+    
+    return YES;
+}
+
 #pragma mark - collection delegate
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -154,9 +182,16 @@
         return NO;
     }
     else{
-        [self.contacts insertObject:contact atIndex:0];
+        int index = ^int(){
+            if (self.contacts.count == 1) {
+                return 0;
+            }else{
+                return (int)self.contacts.count - 1;
+            }
+        }();
+        [self.contacts insertObject:contact atIndex:index];
         self.searchTextfield.text = @"";
-        [self insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
+        [self insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]];
         
         return YES;
     }

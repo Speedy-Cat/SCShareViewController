@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet SCFilesShareCollection *filesCollection;
 @property (nonatomic, strong) SCCCreateContactViewController *createContactVC;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) UILabel *mailsOverlay;
 
 @end
 
@@ -137,6 +138,8 @@
 {
     [super viewWillAppear:animated];
     
+    [self.mailsCollectionView.searchTextfield becomeFirstResponder];
+    
     [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
         int heithg  = self.view.frame.size.height - self.toContainerView.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height;
         
@@ -222,6 +225,35 @@
 -(void)mailCollectionRemoveContact:(NSDictionary*)contact
 {
     [self.contacts addObject:contact];
+    
+    //
+    [self mailCollectionAdjustLayout];
+}
+
+-(void)toTextFieldDidEndEditing
+{
+ 
+    int keyboardHeight = 352;
+    int screenHeight = 768;
+    int toViewHeight = 36;
+    
+    [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(toViewHeight));
+    }];
+    
+    [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@(toViewHeight));
+        //make.height.equalTo(@(screenHeight - toViewHeight - keyboardHeight));
+    }];
+    
+    [self.filesCollection mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.containerView);
+    }];
+}
+
+-(void)toTextFieldShouldBeginEditing
+{
+    [self mailCollectionAdjustLayout];
 }
 
 #pragma mark - search table view delegate
@@ -289,18 +321,35 @@
 
 -(void)mailCollectionAdjustLayout
 {
-    UICollectionViewCell *lastcell = [self.mailsCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.self.mailsCollectionView.contacts.count - 1 inSection:0]];
-    CGFloat height = lastcell.frame.origin.y + lastcell.frame.size.height;
+    NSIndexPath *index = [NSIndexPath indexPathForRow:self.self.mailsCollectionView.contacts.count - 1 inSection:0];
+    UICollectionViewCell *lastcell = [self.mailsCollectionView cellForItemAtIndexPath:index];
     
-    [self.view bringSubviewToFront:self.toContainerView];
-    //self.toContainerView.backgroundColor = [UIColor redColor];
-    [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(height + 1));
-    }];
+    UICollectionViewLayoutAttributes *lastCelllayoutAtt = [self.mailsCollectionView layoutAttributesForItemAtIndexPath:index];
     
-    [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@(height+1));
-    }];
+    CGFloat height = lastCelllayoutAtt.frame.origin.y + lastCelllayoutAtt.frame.size.height;
+    
+    
+    if (lastcell) {
+        int keyboardHeight = 352;
+        int screenHeight = 768;
+        
+        [self.view bringSubviewToFront:self.toContainerView];
+        
+        [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(height + 1));
+        }];
+        
+        [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(@(height+1));
+            //make.height.equalTo(@(screenHeight - keyboardHeight - height - 1));
+            //make.height.equalTo(@(screenHeight - toViewHeight - keyboardHeight));
+        }];
+        
+        [self.filesCollection mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.containerView);
+        }];
+    }
+    
 }
 
 
