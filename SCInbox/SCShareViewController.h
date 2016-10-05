@@ -11,6 +11,6 @@
 #import "SCSearchTableView.h"
 #import "SCCCreateContactViewController.h"
 
-@interface SCShareViewController : UIViewController <UITextFieldDelegate, SCMailsCollectionDelegate, UITableViewDelegate, SCCreateContactDelegate>
+@interface SCShareViewController : UIViewController <UITextFieldDelegate, SCMailsCollectionDelegate, UITableViewDelegate, SCCreateContactDelegate, UITextViewDelegate>
 
 @end

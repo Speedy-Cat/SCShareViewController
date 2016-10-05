@@ -13,6 +13,7 @@
 
 
 @interface SCShareViewController ()
+
 @property (weak, nonatomic) IBOutlet UIView *toContainerView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIScrollView *containerScrollView;
@@ -41,12 +42,24 @@
                                                                @"mail":@"daniel@gmail.com",
                                                                @"name":@"Daniel Ases"},
                                                            @{
+                                                               @"mail":@"angel@gmail.com",
+                                                               @"name":@"Daniel Ases"},
+                                                           @{
+                                                               @"mail":@"oscar@gmail.com",
+                                                               @"name":@"Daniel Ases"},
+                                                           @{
+                                                               @"mail":@"roberto@gmail.com",
+                                                               @"name":@"Daniel Ases"},
+                                                           @{
+                                                               @"mail":@"anguita@gmail.com",
+                                                               @"name":@"Daniel Ases"},
+                                                           @{
                                                                @"mail":@"juan@gmail.com",
                                                                @"name":@"juan Ases"}
                                                            ]];
     
     
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:nil];
     
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc]
                                     initWithBarButtonSystemItem:(UIBarButtonSystemItemStop)
@@ -82,7 +95,7 @@
     self.createContactVC.view.hidden = YES;
     [self addChildViewController:self.createContactVC];
     
-    
+    self.textView.delegate = self;
     //
     // keyboard observers
     //
@@ -173,6 +186,7 @@
 {
     if ([mailText isEqualToString:@""]) {
         self.searchTableView.hidden = YES;
+        self.createContactVC.view.hidden = YES;
         return;
     }
     else{
@@ -186,6 +200,9 @@
     if(!result.count){
         // create contact
         self.createContactVC.view.hidden = NO;
+        self.createContactVC.firstNameTextField.text = @"";
+        self.createContactVC.lastNameTextField.text = @"";
+        self.createContactVC.companyTextField.text = @"";
         
         self.createContactVC.emailTextField.text = mailText;
         
@@ -248,7 +265,7 @@
         CGFloat height = lastcell.frame.origin.y + lastcell.frame.size.height;
         
         [self.view bringSubviewToFront:self.toContainerView];
-        self.toContainerView.backgroundColor = [UIColor redColor];
+        //self.toContainerView.backgroundColor = [UIColor redColor];
         [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(height + 1));
         }];
@@ -258,6 +275,24 @@
         }];
         
         
+    }
+}
+
+#pragma mark - text view delegate
+
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"Message"]) {
+        textView.text = @"";
+    }
+    
+    return YES;
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"Message";
     }
 }
 
