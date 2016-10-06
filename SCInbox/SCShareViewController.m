@@ -182,6 +182,8 @@
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
     self.mailsOverlay.hidden = YES;
     [self mailCollectionAdjustLayout];
+    
+    [self.mailsCollectionView.searchTextfield becomeFirstResponder];
 }
 
 -(void)setTextMailOverlay
@@ -233,6 +235,9 @@
     if ([mailText isEqualToString:@""]) {
         self.searchTableView.hidden = YES;
         self.createContactVC.view.hidden = YES;
+        
+        [self mailCollectionAdjustLayout];
+        
         return;
     }
     else{
