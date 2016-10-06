@@ -59,7 +59,7 @@
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="732" id="35Y-gT-0xE"/>
+                                <constraint firstAttribute="height" priority="250" constant="732" id="35Y-gT-0xE"/>
                                 <constraint firstItem="G1N-nc-tNg" firstAttribute="top" secondItem="U9O-lL-m4k" secondAttribute="top" id="HNk-4z-tM5"/>
                                 <constraint firstItem="UFU-sX-nUJ" firstAttribute="leading" secondItem="U9O-lL-m4k" secondAttribute="leading" id="Joa-Jh-xv4"/>
                                 <constraint firstAttribute="trailing" secondItem="G1N-nc-tNg" secondAttribute="trailing" id="ROr-Jd-YkT"/>
@@ -67,7 +67,7 @@
                                 <constraint firstItem="dDV-e0-4Rd" firstAttribute="top" secondItem="jeV-NB-DWK" secondAttribute="bottom" constant="1" id="UvB-ws-Hkx"/>
                                 <constraint firstItem="jeV-NB-DWK" firstAttribute="top" secondItem="UFU-sX-nUJ" secondAttribute="bottom" constant="-2" id="cHd-CB-onA"/>
                                 <constraint firstAttribute="bottom" secondItem="UFU-sX-nUJ" secondAttribute="bottom" constant="106" id="cW7-lH-tfU"/>
-                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="732" id="dZj-zZ-Y8X"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" priority="250" constant="732" id="dZj-zZ-Y8X"/>
                                 <constraint firstItem="jeV-NB-DWK" firstAttribute="top" secondItem="UFU-sX-nUJ" secondAttribute="bottom" constant="-2" id="fHi-RT-x0G"/>
                                 <constraint firstItem="UFU-sX-nUJ" firstAttribute="top" secondItem="G1N-nc-tNg" secondAttribute="bottom" constant="3" id="fS8-PJ-jkR"/>
                                 <constraint firstAttribute="trailing" secondItem="UFU-sX-nUJ" secondAttribute="trailing" id="hg0-j7-eQe"/>

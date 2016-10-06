@@ -24,6 +24,7 @@
 @property (nonatomic, strong) SCCCreateContactViewController *createContactVC;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) UILabel *mailsOverlay;
+@property (nonatomic) CGRect keyboardFrame;
 
 @end
 
@@ -102,12 +103,15 @@
     //
     [[KGKeyboardChangeManager sharedManager] addObserverForKeyboardChangedWithBlock:^(BOOL show, CGRect keyboardRect, NSTimeInterval animationDuration, UIViewAnimationCurve animationCurve) {
         
+        self.keyboardFrame = keyboardRect;
+        
         if (show) {
             
             [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
                 int heithg  = self.view.frame.size.height - self.toContainerView.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height - keyboardRect.size.height;
                 
                 make.height.equalTo(@(heithg));
+                //make.height.lessThanOrEqualTo(@(heithg));
             }];
         }
         else{
@@ -304,9 +308,12 @@
     
     CGFloat height = lastCelllayoutAtt.frame.origin.y + lastCelllayoutAtt.frame.size.height;
     
+    if (height + 1 == self.toContainerView.frame.size.height) {
+        return;
+    }
     
     if (lastcell) {
-        int keyboardHeight = 352;
+        int keyboardHeight = 398;
         int screenHeight = 768;
         
         [self.view bringSubviewToFront:self.toContainerView];
@@ -315,22 +322,21 @@
             make.height.equalTo(@(height + 1));
         }];
         
-        [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(@(height+1));
-            //make.height.equalTo(@(screenHeight - keyboardHeight - height - 1));
-            //make.height.equalTo(@(screenHeight - toViewHeight - keyboardHeight));
-        }];
-        
-        [self.filesCollection mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self.containerView);
-        }];
+        dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 0.1);
+        dispatch_after(delay, dispatch_get_main_queue(), ^(void){
+            [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
+                int heithg  = self.view.frame.size.height - self.toContainerView.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height - self.keyboardFrame.size.height;
+                make.height.equalTo(@(heithg));
+            }];
+        });
     }
     
 }
 
 -(void)toCollectionOneLineLayout
 {
-    if(self.mailsCollectionView.frame.size.height == 36){
+    
+    if(self.toContainerView.frame.size.height == 36){
         return;
     }
     
@@ -343,18 +349,14 @@
         make.height.equalTo(@(toViewHeight));
     }];
     
-    [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@(toViewHeight));
-        //make.height.equalTo(@(screenHeight - toViewHeight - keyboardHeight));
-    }];
-    
-    [self.filesCollection mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.containerView);
-    }];
-    
     dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 0.1);
     dispatch_after(delay, dispatch_get_main_queue(), ^(void){
-        NSIndexPath *index  = [NSIndexPath indexPathForRow:self.mailsCollectionView.contacts.count - 1 inSection:0];
+        [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
+            int heithg  = self.view.frame.size.height - self.toContainerView.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height - self.keyboardFrame.size.height;
+            make.height.equalTo(@(heithg));
+        }];
+        
+       NSIndexPath *index  = [NSIndexPath indexPathForRow:self.mailsCollectionView.contacts.count - 1 inSection:0]; 
         [self.mailsCollectionView scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
     });
 }
