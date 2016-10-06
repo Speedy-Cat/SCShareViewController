@@ -61,7 +61,19 @@
                                                            ]];
     
     
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:nil];
+
+    
+    UIBarButtonItem *sendButton = ^UIBarButtonItem*(){
+        // send button
+        UIImage *faceImage = [UIImage imageNamed:@"Sent"];
+        UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
+        CGFloat div = 1.3;
+        face.bounds = CGRectMake( 0, 0, faceImage.size.width/div, faceImage.size.height/div);
+        [face setImage:faceImage forState:UIControlStateNormal];
+        return [[UIBarButtonItem alloc] initWithCustomView:face];
+    }();
+    
+    
     
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc]
                                     initWithBarButtonSystemItem:(UIBarButtonSystemItemStop)
@@ -70,7 +82,9 @@
     
     self.navigationItem.leftBarButtonItem = closeButton;
     
-    self.navigationItem.rightBarButtonItem = anotherButton;
+    self.navigationItem.rightBarButtonItem = sendButton;
+    
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     
     
     //
@@ -277,6 +291,10 @@
 {
     [self.contacts addObject:contact];
     
+    if (self.mailsCollectionView.contacts.count == 1) {
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
+    
     //
     [self mailCollectionAdjustLayout];
 }
@@ -307,6 +325,9 @@
             
             //
             [self mailCollectionAdjustLayout];
+            
+            //
+            self.navigationItem.rightBarButtonItem.enabled = YES;
         }
     }
 }
@@ -329,6 +350,8 @@
         self.searchTableView.hidden = YES;
         self.createContactVC.view.hidden = YES;
         [self.contacts removeObject:contact];
+        
+        self.navigationItem.rightBarButtonItem.enabled = YES;
         
         //
         [self mailCollectionAdjustLayout];
