@@ -109,22 +109,10 @@
                 
                 make.height.equalTo(@(heithg));
             }];
-            
-            [self.containerScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
-                int heithg  = self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height - keyboardRect.size.height;
-                
-                make.height.equalTo(@(heithg));
-            }];
         }
         else{
             [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
                 int heithg  = self.view.frame.size.height - self.toContainerView.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height;
-                
-                make.height.equalTo(@(heithg));
-            }];
-            
-            [self.containerScrollView mas_updateConstraints:^(MASConstraintMaker *make) {
-                int heithg  = self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height;
                 
                 make.height.equalTo(@(heithg));
             }];
