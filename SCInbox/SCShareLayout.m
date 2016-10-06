@@ -87,14 +87,14 @@
             CGFloat height = ROW_HEIGHT;
             CGFloat width;
             
-            //int marginRight = 3;
+            int marginRight = 3;
             
             
             if([contact isKindOfClass:[NSString class]]){
                 // search cell
                 if (lastAtt) {
                     width = ^int(){
-                        int width = self.collectionView.frame.size.width - lastAtt.frame.size.width - lastAtt.frame.origin.x;
+                        int width = self.collectionView.frame.size.width - lastAtt.frame.size.width - lastAtt.frame.origin.x - marginRight;
                         
                         if (width < 200 ) {
                             return  200;
@@ -104,10 +104,11 @@
                         }
                     }();
                     
-                    __block BOOL nextRow;
+                    __block BOOL nextRow = NO;
                     
                     x = ^int(){
-                        int result = lastAtt.frame.origin.x + lastAtt.frame.size.width;
+                        int result = lastAtt.frame.origin.x + lastAtt.frame.size.width + marginRight;
+                        
                         if (result + width > self.collectionView.frame.size.width) {
                             result = 0;
                             nextRow = YES;
@@ -140,10 +141,12 @@
                 
                 
                 if (lastAtt) {
-                    __block BOOL nextRow;
+                    __block BOOL nextRow = NO;
                     
                     x = ^int(){
-                        int result = lastAtt.frame.origin.x + lastAtt.frame.size.width;
+                        
+                        int result = lastAtt.frame.origin.x + lastAtt.frame.size.width + marginRight;
+                        
                         if (result + width > self.collectionView.frame.size.width) {
                             result = 0;
                             nextRow = YES;
