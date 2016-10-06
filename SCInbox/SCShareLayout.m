@@ -172,7 +172,6 @@
         }(contact, lastAtt);
         
         
-        
         //
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         UICollectionViewLayoutAttributes* attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];

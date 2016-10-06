@@ -28,7 +28,7 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFU-sX-nUJ" userLabel="border">
                                     <rect key="frame" x="0.0" y="625" width="600" height="1"/>
-                                    <color key="backgroundColor" white="0.68963301809210531" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="0.62" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="dDV-e0-4Rd" customClass="SCFilesShareCollection">
                                     <rect key="frame" x="0.0" y="646" width="600" height="86"/>
@@ -50,9 +50,10 @@
                                     <color key="textColor" red="0.45977351641414144" green="0.45977351641414144" blue="0.45977351641414144" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G1N-nc-tNg">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Message:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G1N-nc-tNg">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="622"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>

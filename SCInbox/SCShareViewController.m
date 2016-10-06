@@ -35,6 +35,8 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"Share";
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor blueColor]}];
     
     self.contacts = [[NSMutableArray alloc] initWithArray:@[
                                                            @{
@@ -122,6 +124,7 @@
     [self addChildViewController:self.createContactVC];
     
     self.textView.delegate = self;
+    
     //
     // keyboard observers
     //
@@ -135,7 +138,6 @@
                 int heithg  = self.view.frame.size.height - self.toContainerView.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height - keyboardRect.size.height;
                 
                 make.height.equalTo(@(heithg));
-                //make.height.lessThanOrEqualTo(@(heithg));
             }];
         }
         else{
@@ -153,8 +155,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [self.mailsCollectionView.searchTextfield becomeFirstResponder];
     
     [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
         int heithg  = self.view.frame.size.height - self.toContainerView.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height;
@@ -190,6 +190,13 @@
                                             action:@selector(handleSingleTap:)];
     [self.mailsOverlay addGestureRecognizer:singleFingerTap];
     [self.mailsOverlay setUserInteractionEnabled:YES];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.mailsCollectionView.searchTextfield becomeFirstResponder];
 }
 
 //The event handling method
@@ -262,7 +269,7 @@
     self.searchTableView.contacts = result;
     
     
-    [self toCollectionOneLineLayout];
+    [self toCollectionOneLineLayoutInSearch:YES];
     
     
     if(!result.count){
@@ -274,9 +281,6 @@
         
         self.createContactVC.emailTextField.text = mailText;
         
-        //
-        //self.searchTableView.hidden = YES;
-        //self.textView.hidden =YES;
     }
     else{
         self.createContactVC.view.hidden = YES;
@@ -302,7 +306,7 @@
 -(void)toTextFieldDidEndEditing
 {
  
-    [self toCollectionOneLineLayout];
+    //[self toCollectionOneLineLayout];
 }
 
 -(void)toTextFieldShouldBeginEditing
@@ -362,11 +366,19 @@
 
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
-    if ([textView.text isEqualToString:@"Message"]) {
+    if ([textView.text isEqualToString:@"Message:"]) {
         textView.text = @"";
+        textView.textColor = [UIColor blackColor];
     }
+    
+    [self toCollectionOneLineLayoutInSearch:NO];
+    
     [self setTextMailOverlay];
-    self.mailsOverlay.hidden = NO;
+    
+    if (self.mailsCollectionView.contacts.count > 1) {
+        self.mailsOverlay.hidden = NO;
+    }
+    
     
     return YES;
 }
@@ -374,7 +386,8 @@
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:@""]) {
-        textView.text = @"Message";
+        textView.text = @"Message:";
+        textView.textColor = [UIColor lightGrayColor];
     }
 }
 
@@ -412,17 +425,21 @@
     
 }
 
--(void)toCollectionOneLineLayout
+-(void)toCollectionOneLineLayoutInSearch:(BOOL)isInSearch
 {
     
     if(self.toContainerView.frame.size.height == 36){
         return;
     }
     
-    
-    int keyboardHeight = 352;
-    int screenHeight = 768;
-    int toViewHeight = 36;
+    int toViewHeight = ^int(){
+        if (isInSearch) {
+            return 50;
+        }
+        else{
+            return 36;
+        }
+    }();
     
     [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(toViewHeight));
@@ -439,17 +456,5 @@
         [self.mailsCollectionView scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
     });
 }
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
