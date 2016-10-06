@@ -88,6 +88,16 @@
     self.searchTableView.hidden = YES;
     self.searchTableView.delegate = self;
     [self.containerView addSubview:self.searchTableView];
+    
+    //
+    // mails label
+    //
+    self.mailsOverlay = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.toContainerView.frame.size.width, self.toContainerView.frame.size.height)];
+    self.mailsOverlay.text = @"mails overlay";
+    self.mailsOverlay.backgroundColor = [UIColor whiteColor];
+    self.mailsOverlay.hidden = YES;
+    [self.toContainerView addSubview:self.mailsOverlay];
+    
 
     
     // create contact vc
@@ -156,6 +166,47 @@
         make.right.equalTo(self.containerView).with.offset(-170);
         make.left.equalTo(self.containerView).with.offset(170);
     }];
+    
+    [self.mailsOverlay mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.mailsCollectionView);
+    }];
+    
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(handleSingleTap:)];
+    [self.mailsOverlay addGestureRecognizer:singleFingerTap];
+    [self.mailsOverlay setUserInteractionEnabled:YES];
+}
+
+//The event handling method
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+    self.mailsOverlay.hidden = YES;
+    [self mailCollectionAdjustLayout];
+}
+
+-(void)setTextMailOverlay
+{
+    NSMutableArray *contacts = [[NSMutableArray alloc] initWithArray:self.mailsCollectionView.contacts];
+    [contacts removeObjectAtIndex:contacts.count -1];
+    
+    NSString *mailsString = @"";
+    
+    for (int i = 0; i < contacts.count; i++) {
+        NSDictionary *contact = contacts[i];
+        
+        NSString *format = ^NSString*(){
+            if (i == contacts.count -1) {
+                return @"%@";
+            }
+            else{
+                return @"%@, ";
+            }
+        }();
+        
+        mailsString = [mailsString stringByAppendingString:[NSString stringWithFormat:format, [contact objectForKey:@"mail"]]];
+    }
+    
+    self.mailsOverlay.text = mailsString;
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -286,6 +337,8 @@
     if ([textView.text isEqualToString:@"Message"]) {
         textView.text = @"";
     }
+    [self setTextMailOverlay];
+    self.mailsOverlay.hidden = NO;
     
     return YES;
 }
@@ -302,19 +355,17 @@
 -(void)mailCollectionAdjustLayout
 {
     NSIndexPath *index = [NSIndexPath indexPathForRow:self.self.mailsCollectionView.contacts.count - 1 inSection:0];
-    UICollectionViewCell *lastcell = [self.mailsCollectionView cellForItemAtIndexPath:index];
     
     UICollectionViewLayoutAttributes *lastCelllayoutAtt = [self.mailsCollectionView layoutAttributesForItemAtIndexPath:index];
     
-    CGFloat height = lastCelllayoutAtt.frame.origin.y + lastCelllayoutAtt.frame.size.height;
     
-    if (height + 1 == self.toContainerView.frame.size.height) {
-        return;
-    }
-    
-    if (lastcell) {
-        int keyboardHeight = 398;
-        int screenHeight = 768;
+    if (lastCelllayoutAtt) {
+        CGFloat height = lastCelllayoutAtt.frame.origin.y + lastCelllayoutAtt.frame.size.height;
+        
+        if (height + 1 == self.toContainerView.frame.size.height) {
+            return;
+        }
+        
         
         [self.view bringSubviewToFront:self.toContainerView];
         
@@ -356,7 +407,7 @@
             make.height.equalTo(@(heithg));
         }];
         
-       NSIndexPath *index  = [NSIndexPath indexPathForRow:self.mailsCollectionView.contacts.count - 1 inSection:0]; 
+       NSIndexPath *index  = [NSIndexPath indexPathForRow:self.mailsCollectionView.contacts.count - 1 inSection:0];
         [self.mailsCollectionView scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
     });
 }

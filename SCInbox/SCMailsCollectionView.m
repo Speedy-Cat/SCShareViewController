@@ -119,11 +119,13 @@
             cell.roundview.backgroundColor = [UIColor whiteColor];
             cell.label.textColor = [UIColor blueColor];
         }
+        
+        if([self.SCMailsDelegate respondsToSelector:@selector(mailCollectionChangeMailText:)]) {
+            [self.SCMailsDelegate mailCollectionChangeMailText:proposedNewString];
+        }
     }
     
-    if([self.SCMailsDelegate respondsToSelector:@selector(mailCollectionChangeMailText:)]) {
-        [self.SCMailsDelegate mailCollectionChangeMailText:proposedNewString];
-    }
+    
     
     
     return YES;
