@@ -412,19 +412,30 @@
         }
         
         
-        [self.view bringSubviewToFront:self.toContainerView];
+        //[self.view bringSubviewToFront:self.toContainerView];
         
         [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(height + 1));
         }];
         
-        dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 0.1);
-        dispatch_after(delay, dispatch_get_main_queue(), ^(void){
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.equalTo(@(height + 1));
+            }];
+            
+            [self.toContainerView layoutIfNeeded];
+            
+            
             [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
                 int heithg  = self.view.frame.size.height - self.toContainerView.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height - self.keyboardFrame.size.height;
                 make.height.equalTo(@(heithg));
             }];
-        });
+            
+            
+            [self.containerView layoutIfNeeded];
+
+            
+        } completion:nil];
     }
     
 }
@@ -445,20 +456,21 @@
         }
     }();
     
-    [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(toViewHeight));
-    }];
     
-    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 0.1);
-    dispatch_after(delay, dispatch_get_main_queue(), ^(void){
-        [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
-            int heithg  = self.view.frame.size.height - self.toContainerView.frame.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height - self.keyboardFrame.size.height;
-            make.height.equalTo(@(heithg));
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(toViewHeight));
         }];
         
-       NSIndexPath *index  = [NSIndexPath indexPathForRow:self.mailsCollectionView.contacts.count - 1 inSection:0];
+        [self.toContainerView layoutIfNeeded];
+        //[self.containerView layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {
+        NSIndexPath *index  = [NSIndexPath indexPathForRow:self.mailsCollectionView.contacts.count - 1 inSection:0];
         [self.mailsCollectionView scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
-    });
+    }];
+    
 }
 
 @end
