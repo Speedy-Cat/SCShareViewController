@@ -30,4 +30,6 @@
 
 -(BOOL)addContact:(NSDictionary*)contact;
 
+-(void)deselectLastCellSelected;
+
 @end

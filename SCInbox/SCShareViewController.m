@@ -106,14 +106,14 @@
     [self.containerView addSubview:self.searchTableView];
     
     //
-    // mails label
+    // mails overlay label
     //
     self.mailsOverlay = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.toContainerView.frame.size.width, self.toContainerView.frame.size.height)];
     self.mailsOverlay.text = @"mails overlay";
+    self.mailsOverlay.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
     self.mailsOverlay.backgroundColor = [UIColor whiteColor];
     self.mailsOverlay.hidden = YES;
     [self.toContainerView addSubview:self.mailsOverlay];
-    
 
     
     // create contact vc
@@ -305,13 +305,14 @@
 
 -(void)toTextFieldDidEndEditing
 {
- 
-    //[self toCollectionOneLineLayout];
+    [self.mailsCollectionView deselectLastCellSelected];
 }
 
 -(void)toTextFieldShouldBeginEditing
 {
     [self mailCollectionAdjustLayout];
+    
+    [self.mailsCollectionView deselectLastCellSelected];
 }
 
 #pragma mark - search table view delegate
@@ -366,10 +367,13 @@
 
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
+    // textview placeholder
     if ([textView.text isEqualToString:@"Message:"]) {
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
     }
+    
+    [self.mailsCollectionView deselectLastCellSelected];
     
     [self toCollectionOneLineLayoutInSearch:NO];
     
@@ -379,12 +383,12 @@
         self.mailsOverlay.hidden = NO;
     }
     
-    
     return YES;
 }
 
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
+    // textview placeholder
     if ([textView.text isEqualToString:@""]) {
         textView.text = @"Message:";
         textView.textColor = [UIColor lightGrayColor];

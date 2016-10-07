@@ -14,6 +14,7 @@
 
 @interface SCMailsCollectionView ()
 
+@property (nonatomic, strong) SCContactCollectionViewCell *lastCellSelected;
 
 @end
 
@@ -174,6 +175,9 @@
     
     datasetCell.roundview.backgroundColor = [UIColor blueColor];
     datasetCell.label.textColor = [UIColor whiteColor];
+    
+    
+    self.lastCellSelected = datasetCell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -183,6 +187,12 @@
     
     datasetCell.roundview.backgroundColor = [UIColor whiteColor];
     datasetCell.label.textColor = [UIColor blueColor];
+}
+
+-(void)deselectLastCellSelected
+{
+    self.lastCellSelected.roundview.backgroundColor = [UIColor whiteColor];
+    self.lastCellSelected.label.textColor = [UIColor blueColor];
 }
 
 
