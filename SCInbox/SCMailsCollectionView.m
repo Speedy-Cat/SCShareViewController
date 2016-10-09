@@ -213,7 +213,12 @@
         }();
         [self.contacts insertObject:contact atIndex:index];
         self.searchTextfield.text = @"";
-        [self insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]];
+        
+        
+        [UIView animateWithDuration:0.2 animations:^{
+            [self insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]];
+        }];
+        
         
         return YES;
     }
