@@ -27,8 +27,7 @@
         
         [self registerNib:[UINib nibWithNibName:@"SCFileCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"fileCell"];
         
-        self.files = @[@"a.jpg",@"b.jpg",@"c.jpg",@"d.jpg",@"e.jpg",@"f.jpg",@"g.jpg",@"h.jpg",@"i.jpg",@"a.jpg",@"b.jpg",@"c.jpg",@"d.jpg",@"e.jpg",@"f.jpg",@"g.jpg",@"h.jpg",@"i.jpg"
-                       ];
+        self.files = @[@"a.jpg",@"b.jpg",@"c.jpg",@"d.jpg",@"e.jpg",@"f.jpg",@"g.jpg",@"h.jpg",@"i.jpg",@"a.jpg",@"b.jpg",@"c.jpg",@"d.jpg",@"e.jpg",@"f.jpg",@"g.jpg",@"h.jpg",@"i.jpg"];
     }
     return self;
 }

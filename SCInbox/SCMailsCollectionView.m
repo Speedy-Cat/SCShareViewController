@@ -219,7 +219,6 @@
             [self insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]];
         }];
         
-        
         return YES;
     }
 }

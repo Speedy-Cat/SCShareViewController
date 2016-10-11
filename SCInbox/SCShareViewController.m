@@ -199,10 +199,12 @@
     [self.mailsCollectionView.searchTextfield becomeFirstResponder];
 }
 
-//The event handling method
+// The event handling method
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
     self.mailsOverlay.hidden = YES;
-    [self mailCollectionAdjustLayout];
+    [self mailCollectionAdjustLayoutWithCompletion:^{
+        
+    }];
     
     [self.mailsCollectionView.searchTextfield becomeFirstResponder];
 }
@@ -253,42 +255,51 @@
 
 -(void)mailCollectionChangeMailText:(NSString *)mailText
 {
+    
+    
+    
     if ([mailText isEqualToString:@""]) {
-        self.searchTableView.hidden = YES;
-        self.createContactVC.view.hidden = YES;
+
         
-        [self mailCollectionAdjustLayout];
+
+        [self mailCollectionAdjustLayoutWithCompletion:^{
+            self.searchTableView.hidden = YES;
+            self.createContactVC.view.hidden = YES;
+        }];
         
         return;
     }
-    else{
-        self.searchTableView.hidden = NO;
-    }
+    
+    
     
     NSArray *result = [self searchEmailWithString:mailText];
     self.searchTableView.contacts = result;
     
     
-    [self toCollectionOneLineLayoutInSearch:YES];
-    
-    
-    if(!result.count){
-        // create contact
-        self.createContactVC.view.hidden = NO;
-        self.createContactVC.firstNameTextField.text = @"";
-        self.createContactVC.lastNameTextField.text = @"";
-        self.createContactVC.companyTextField.text = @"";
+    [self toCollectionOneLineLayoutInSearch:YES completion:^{
         
-        self.createContactVC.emailTextField.text = mailText;
-        
-    }
-    else{
-        self.createContactVC.view.hidden = YES;
         self.searchTableView.hidden = NO;
-        self.textView.hidden = NO;
-    }
+        
+        if(!result.count){
+            // create contact
+            self.createContactVC.view.hidden = NO;
+            self.createContactVC.firstNameTextField.text = @"";
+            self.createContactVC.lastNameTextField.text = @"";
+            self.createContactVC.companyTextField.text = @"";
+            
+            self.createContactVC.emailTextField.text = mailText;
+            
+        }
+        else{
+            self.createContactVC.view.hidden = YES;
+            self.textView.hidden = NO;
+        }
+        
+        [self.searchTableView reloadData];
+    }];
     
-    [self.searchTableView reloadData];
+    
+    
 }
 
 -(void)mailCollectionRemoveContact:(NSDictionary*)contact
@@ -300,7 +311,9 @@
     }
     
     //
-    [self mailCollectionAdjustLayout];
+    [self mailCollectionAdjustLayoutWithCompletion:^{
+        
+    }];
 }
 
 -(void)toTextFieldDidEndEditing
@@ -310,7 +323,9 @@
 
 -(void)toTextFieldShouldBeginEditing
 {
-    [self mailCollectionAdjustLayout];
+    [self mailCollectionAdjustLayoutWithCompletion:^{
+        
+    }];
     
     [self.mailsCollectionView deselectLastCellSelected];
 }
@@ -324,12 +339,14 @@
         
         // add contact to mail collecion
         if([self.mailsCollectionView addContact:contact]){
-            // remove contact from search table
-            self.searchTableView.hidden = YES;
-            [self.contacts removeObject:contact];
+            
             
             //
-            [self mailCollectionAdjustLayout];
+            [self mailCollectionAdjustLayoutWithCompletion:^{
+                // remove contact from search table
+                self.searchTableView.hidden = YES;
+                [self.contacts removeObject:contact];
+            }];
             
             //
             self.navigationItem.rightBarButtonItem.enabled = YES;
@@ -351,15 +368,17 @@
 {
     // add contact to mail collecion
     if([self.mailsCollectionView addContact:contact]){
-        // remove contact from search table
-        self.searchTableView.hidden = YES;
-        self.createContactVC.view.hidden = YES;
-        [self.contacts removeObject:contact];
         
-        self.navigationItem.rightBarButtonItem.enabled = YES;
         
         //
-        [self mailCollectionAdjustLayout];
+        [self mailCollectionAdjustLayoutWithCompletion:^{
+            // remove contact from search table
+            self.searchTableView.hidden = YES;
+            self.createContactVC.view.hidden = YES;
+            [self.contacts removeObject:contact];
+            
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+        }];
     }
 }
 
@@ -375,13 +394,15 @@
     
     [self.mailsCollectionView deselectLastCellSelected];
     
-    [self toCollectionOneLineLayoutInSearch:NO];
+    [self toCollectionOneLineLayoutInSearch:NO completion:^{
+        [self setTextMailOverlay];
+        
+        if (self.mailsCollectionView.contacts.count > 1) {
+            self.mailsOverlay.hidden = NO;
+        }
+    }];
     
-    [self setTextMailOverlay];
     
-    if (self.mailsCollectionView.contacts.count > 1) {
-        self.mailsOverlay.hidden = NO;
-    }
     
     return YES;
 }
@@ -397,7 +418,7 @@
 
 #pragma mark
 
--(void)mailCollectionAdjustLayout
+-(void)mailCollectionAdjustLayoutWithCompletion:(void (^ __nullable)())completion
 {
     NSIndexPath *index = [NSIndexPath indexPathForRow:self.self.mailsCollectionView.contacts.count - 1 inSection:0];
     
@@ -408,6 +429,7 @@
         CGFloat height = lastCelllayoutAtt.frame.origin.y + lastCelllayoutAtt.frame.size.height;
         
         if (height + 1 == self.toContainerView.frame.size.height) {
+            completion();
             return;
         }
         
@@ -435,15 +457,18 @@
             [self.containerView layoutIfNeeded];
 
             
-        } completion:nil];
+        } completion:^(BOOL finished) {
+            completion();
+        }];
     }
     
 }
 
--(void)toCollectionOneLineLayoutInSearch:(BOOL)isInSearch
+-(void)toCollectionOneLineLayoutInSearch:(BOOL)isInSearch completion:(void (^ __nullable)())completion
 {
     
     if(self.toContainerView.frame.size.height == 36){
+        completion();
         return;
     }
     
@@ -469,6 +494,8 @@
     } completion:^(BOOL finished) {
         NSIndexPath *index  = [NSIndexPath indexPathForRow:self.mailsCollectionView.contacts.count - 1 inSection:0];
         [self.mailsCollectionView scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+        
+        completion();
     }];
     
 }

@@ -23,25 +23,6 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKA-lR-14o">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ue6-aE-65k">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="36"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXi-km-iCQ" userLabel="border">
-                                    <rect key="frame" x="0.0" y="35" width="600" height="1"/>
-                                    <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="1" id="qVe-4L-5T8"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="trailing" secondItem="oXi-km-iCQ" secondAttribute="trailing" id="6Kn-Qv-w7T"/>
-                                <constraint firstAttribute="bottom" secondItem="oXi-km-iCQ" secondAttribute="bottom" id="X4N-My-pj9"/>
-                                <constraint firstItem="oXi-km-iCQ" firstAttribute="leading" secondItem="ue6-aE-65k" secondAttribute="leading" id="pcq-rW-cLf"/>
-                                <constraint firstItem="oXi-km-iCQ" firstAttribute="top" secondItem="ue6-aE-65k" secondAttribute="top" priority="250" constant="35" id="uQa-KC-ssK"/>
-                            </constraints>
-                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9O-lL-m4k">
                             <rect key="frame" x="0.0" y="36" width="600" height="732"/>
                             <subviews>
@@ -98,6 +79,25 @@
                                 <constraint firstAttribute="trailing" secondItem="dDV-e0-4Rd" secondAttribute="trailing" id="wAN-oW-Vuj"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ue6-aE-65k">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="36"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXi-km-iCQ" userLabel="border">
+                                    <rect key="frame" x="0.0" y="35" width="600" height="1"/>
+                                    <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="qVe-4L-5T8"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="oXi-km-iCQ" secondAttribute="trailing" id="6Kn-Qv-w7T"/>
+                                <constraint firstAttribute="bottom" secondItem="oXi-km-iCQ" secondAttribute="bottom" id="X4N-My-pj9"/>
+                                <constraint firstItem="oXi-km-iCQ" firstAttribute="leading" secondItem="ue6-aE-65k" secondAttribute="leading" id="pcq-rW-cLf"/>
+                                <constraint firstItem="oXi-km-iCQ" firstAttribute="top" secondItem="ue6-aE-65k" secondAttribute="top" priority="250" constant="35" id="uQa-KC-ssK"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -124,9 +124,5 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="401" y="351"/>
         </view>
-        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="cri-SH-hnR">
-            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-        </activityIndicatorView>
     </objects>
 </document>
