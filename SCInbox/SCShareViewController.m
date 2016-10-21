@@ -466,12 +466,13 @@
 
 -(void)toCollectionOneLineLayoutInSearch:(BOOL)isInSearch completion:(void (^ __nullable)())completion
 {
-    
+    // if toContainer is already in one line, return
     if(self.toContainerView.frame.size.height == 36){
         completion();
         return;
     }
     
+    //
     int toViewHeight = ^int(){
         if (isInSearch) {
             return 50;
@@ -482,19 +483,19 @@
     }();
     
     
-    
     [UIView animateWithDuration:0.3 animations:^{
+        
+        
         [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(toViewHeight));
         }];
         
         [self.toContainerView layoutIfNeeded];
-        //[self.containerView layoutIfNeeded];
+        
+        NSIndexPath *index  = [NSIndexPath indexPathForRow:self.mailsCollectionView.contacts.count - 1 inSection:0];
+        [self.mailsCollectionView scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
         
     } completion:^(BOOL finished) {
-        NSIndexPath *index  = [NSIndexPath indexPathForRow:self.mailsCollectionView.contacts.count - 1 inSection:0];
-        [self.mailsCollectionView scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
-        
         completion();
     }];
     
