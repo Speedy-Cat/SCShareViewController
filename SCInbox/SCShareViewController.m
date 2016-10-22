@@ -43,23 +43,23 @@
                                                                @"mail":@"john@gmail.com",
                                                                @"name":@"John Poe"},
                                                            @{
-                                                               @"mail":@"daniel@gmail.com",
+                                                               @"mail":@"daniel.as@gmail.com",
                                                                @"name":@"Daniel Ases"},
                                                            @{
-                                                               @"mail":@"angel@gmail.com",
-                                                               @"name":@"Daniel Ases"},
+                                                               @"mail":@"angelgasperico@gmail.com",
+                                                               @"name":@"Angel Gasper"},
                                                            @{
-                                                               @"mail":@"oscar@gmail.com",
-                                                               @"name":@"Daniel Ases"},
+                                                               @"mail":@"oscarontario@gmail.com",
+                                                               @"name":@"Oscar Ontario"},
                                                            @{
-                                                               @"mail":@"roberto@gmail.com",
-                                                               @"name":@"Daniel Ases"},
+                                                               @"mail":@"robertodasousas@gmail.com",
+                                                               @"name":@"Roberto Da Sousa"},
                                                            @{
-                                                               @"mail":@"anguita@gmail.com",
-                                                               @"name":@"Daniel Ases"},
+                                                               @"mail":@"marygomes@gmail.com",
+                                                               @"name":@"Mary Gomes"},
                                                            @{
                                                                @"mail":@"juan@gmail.com",
-                                                               @"name":@"juan Ases"}
+                                                               @"name":@"Juan Garcia"}
                                                            ]];
     
     
@@ -256,11 +256,7 @@
 -(void)mailCollectionChangeMailText:(NSString *)mailText
 {
     
-    
-    
     if ([mailText isEqualToString:@""]) {
-
-        
 
         [self mailCollectionAdjustLayoutWithCompletion:^{
             self.searchTableView.hidden = YES;
