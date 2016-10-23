@@ -7,6 +7,7 @@
 //
 
 #import "SCSearchTableView.h"
+#import "SCContactTableViewCell.h"
 
 @interface SCSearchTableView ()
 
@@ -27,47 +28,61 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        //self.delegate = self;
+        
         self.dataSource = self;
+        
+        // register cell nib
+        UINib *nib = [UINib nibWithNibName:@"SCContactTableViewCell" bundle:nil];
+        [self registerNib:nib forCellReuseIdentifier:@"SCContactCell"];
+        
+        // separator lines
+        [self setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+        [self setSeparatorInset:UIEdgeInsetsZero];
     }
     return self;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (!self.contacts.count) {
-        _noResults = YES;
-        return 1;
-    }
-    else{
+//    if (!self.contacts.count) {
+//        _noResults = YES;
+//        return 1;
+//    }
+//    else{
         _noResults = NO;
         return self.contacts.count;
-    }
+//    }
     
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
+    SCContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SCContactCell"];
     
-    if (cell == nil) {
-        
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MyIdentifier"];
-        
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-    }
     
-    if (_noResults) {
-        cell.textLabel.text = @"Create New contact";
-    }
-    else{
-        NSDictionary *contact = self.contacts[indexPath.row];
-        cell.textLabel.text = [contact objectForKey:@"mail"];
-    }
+    NSDictionary *contact = self.contacts[indexPath.row];
+    NSString *email = [contact objectForKey:@"mail"];
+    NSString *name = [contact objectForKey:@"name"];
     
+    cell.emailLabel.text = email;
+    cell.nameLabel.text = name;
+    
+    NSString *initials = ^NSString*(){
+        NSArray *stringArr = [name componentsSeparatedByString:@" "];
+        NSString *first = stringArr[0];
+        NSString *second = stringArr[1];
+        ;
+        
+        return [NSString stringWithFormat:@"%@%@", [first substringToIndex:1], [second substringToIndex:1]];
+    }();
+    
+    cell.initialsLabel.text = initials;
+    
+
+
     return cell;
 }
+
 
 
 @end

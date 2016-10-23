@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		205E6FDC750DE84E48F0CB6A /* libPods-SCInbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F85D492969C40086313F0CE5 /* libPods-SCInbox.a */; };
 		26BB667550A84B44E68EC63F /* libPods-SCInboxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9444A7EA657609564124357 /* libPods-SCInboxTests.a */; };
+		490708FD1DBBE86000C844C5 /* SCContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 490708FB1DBBE86000C844C5 /* SCContactTableViewCell.m */; };
+		490708FE1DBBE86000C844C5 /* SCContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 490708FC1DBBE86000C844C5 /* SCContactTableViewCell.xib */; };
 		49C0441E1D9534F4008B1CBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C0441D1D9534F4008B1CBB /* main.m */; };
 		49C044211D9534F4008B1CBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C044201D9534F4008B1CBB /* AppDelegate.m */; };
 		49C044291D9534F4008B1CBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C044281D9534F4008B1CBB /* Assets.xcassets */; };
@@ -61,6 +63,9 @@
 
 /* Begin PBXFileReference section */
 		0CA50C5FD667AD1E99DEEE65 /* Pods-SCInboxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCInboxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SCInboxTests/Pods-SCInboxTests.release.xcconfig"; sourceTree = "<group>"; };
+		490708FA1DBBE86000C844C5 /* SCContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCContactTableViewCell.h; sourceTree = "<group>"; };
+		490708FB1DBBE86000C844C5 /* SCContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCContactTableViewCell.m; sourceTree = "<group>"; };
+		490708FC1DBBE86000C844C5 /* SCContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCContactTableViewCell.xib; sourceTree = "<group>"; };
 		49C044191D9534F4008B1CBB /* SCInbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCInbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C0441D1D9534F4008B1CBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49C0441F1D9534F4008B1CBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -257,6 +262,9 @@
 			children = (
 				49C0447B1D997AE8008B1CBB /* SCSearchTableView.h */,
 				49C0447C1D997AE8008B1CBB /* SCSearchTableView.m */,
+				490708FA1DBBE86000C844C5 /* SCContactTableViewCell.h */,
+				490708FB1DBBE86000C844C5 /* SCContactTableViewCell.m */,
+				490708FC1DBBE86000C844C5 /* SCContactTableViewCell.xib */,
 			);
 			name = SCSearchTable;
 			sourceTree = "<group>";
@@ -417,6 +425,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				490708FE1DBBE86000C844C5 /* SCContactTableViewCell.xib in Resources */,
 				49C044AD1D9EA50C008B1CBB /* g.jpg in Resources */,
 				49C044291D9534F4008B1CBB /* Assets.xcassets in Resources */,
 				49C044AF1D9EA50C008B1CBB /* i.jpg in Resources */,
@@ -589,6 +598,7 @@
 				49C0448E1D9AABA3008B1CBB /* SCContactCollectionViewCell.m in Sources */,
 				49C044641D956929008B1CBB /* SCShareViewController.m in Sources */,
 				49C0446A1D95731B008B1CBB /* SCShareLayout.m in Sources */,
+				490708FD1DBBE86000C844C5 /* SCContactTableViewCell.m in Sources */,
 				49C0441E1D9534F4008B1CBB /* main.m in Sources */,
 				49C044781D996B8C008B1CBB /* SCMailsCollectionView.m in Sources */,
 				49C0447D1D997AE8008B1CBB /* SCSearchTableView.m in Sources */,
