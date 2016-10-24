@@ -36,7 +36,7 @@
     
     self.title = @"Share";
     [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor blueColor]}];
+     @{NSForegroundColorAttributeName:[UIColor colorWithRed:0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]}];
     
     self.contacts = [[NSMutableArray alloc] initWithArray:@[
                                                            @{
