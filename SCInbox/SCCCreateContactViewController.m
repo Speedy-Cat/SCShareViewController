@@ -120,15 +120,6 @@
         make.height.equalTo(@40);
     }];
     
-//    [self.createButton mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.companyNameRow).with.offset(50);
-//        make.right.equalTo(self.view);
-//        make.left.equalTo(self.view);
-//        make.bottom.equalTo(self.view);
-//        make.width.equalTo(self.view);
-//    }];
-//    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -144,6 +135,7 @@
     
     return YES;
 }
+
 - (IBAction)createAction:(id)sender {
     NSDictionary *contact = @{
                               @"mail":_emailTextField.text,

@@ -69,11 +69,19 @@
     
     NSString *initials = ^NSString*(){
         NSArray *stringArr = [name componentsSeparatedByString:@" "];
-        NSString *first = stringArr[0];
-        NSString *second = stringArr[1];
-        ;
         
-        return [NSString stringWithFormat:@"%@%@", [first substringToIndex:1], [second substringToIndex:1]];
+        if (!stringArr.count || [name isEqualToString:@""]) {
+            return [email substringToIndex:1];
+        }
+        else if(stringArr.count == 1){
+            NSString *first = stringArr[0];
+            return [first substringToIndex:1];
+        }
+        else{
+            NSString *first = stringArr[0];
+            NSString *second = stringArr[1];
+            return [NSString stringWithFormat:@"%@%@", [first substringToIndex:1], [second substringToIndex:1]];
+        }
     }();
     
     cell.initialsLabel.text = initials;
