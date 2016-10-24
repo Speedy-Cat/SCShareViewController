@@ -7,9 +7,35 @@
 //
 
 #import "SCCCreateContactViewController.h"
+#import "Masonry.h"
+
+@interface SCContactCreateFormRowView : UIView
+
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
+@end
+
+@implementation SCContactCreateFormRowView
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        
+    }
+    return self;
+}
+@end
+
+
 
 @interface SCCCreateContactViewController ()
 
+@property (nonatomic, strong) SCContactCreateFormRowView *emailRow;
+@property (nonatomic, strong) SCContactCreateFormRowView *firstNameRow;
+@property (nonatomic, strong) SCContactCreateFormRowView *lastNameRow;
+@property (nonatomic, strong) SCContactCreateFormRowView *companyNameRow;
 
 @end
 
@@ -19,12 +45,90 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.emailTextField.delegate = self;
-    self.firstNameTextField.delegate = self;
-    self.lastNameTextField.delegate = self;
-    self.companyTextField.delegate = self;
+
     
     self.createButton.enabled = NO;
+    
+    
+    // create rows
+    self.emailRow = [[[NSBundle mainBundle] loadNibNamed:@"SCCCreateContactViewController" owner:self options:nil] lastObject];
+    self.emailTextField = self.emailRow.textField;
+    
+    
+    self.firstNameRow = [[[NSBundle mainBundle] loadNibNamed:@"SCCCreateContactViewController" owner:self options:nil] lastObject];
+    self.firstNameRow.label.text = @"First Name";
+    self.firstNameTextField = self.firstNameRow.textField;
+    
+    
+    self.lastNameRow = [[[NSBundle mainBundle] loadNibNamed:@"SCCCreateContactViewController" owner:self options:nil] lastObject];
+    self.lastNameRow.label.text = @"Last Name";
+    self.lastNameTextField = self.lastNameRow.textField;
+    
+    
+    self.companyNameRow = [[[NSBundle mainBundle] loadNibNamed:@"SCCCreateContactViewController" owner:self options:nil] lastObject];
+    self.companyNameRow.label.text = @"Company";
+    self.companyTextField = self.companyNameRow.textField;
+    
+    
+    
+    [self.view addSubview:self.emailRow];
+    [self.view addSubview:self.firstNameRow];
+    [self.view addSubview:self.lastNameRow];
+    [self.view addSubview:self.companyNameRow];
+    
+    
+    
+        self.emailTextField.delegate = self;
+        self.firstNameTextField.delegate = self;
+        self.lastNameTextField.delegate = self;
+        self.companyTextField.delegate = self;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.view.hidden = YES;
+    
+    
+//    
+    [self.emailRow mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).with.offset(30);
+        make.right.equalTo(self.view);
+        make.left.equalTo(self.view);
+        make.height.equalTo(@40);
+    }];
+    
+    [self.firstNameRow mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.emailRow).with.offset(45);
+        make.right.equalTo(self.view);
+        make.left.equalTo(self.view);
+        make.height.equalTo(@40);
+    }];
+
+    [self.lastNameRow mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.firstNameRow).with.offset(45);
+        make.right.equalTo(self.view);
+        make.left.equalTo(self.view);
+        make.height.equalTo(@40);
+    }];
+
+    [self.companyNameRow mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.lastNameRow).with.offset(45);
+        make.right.equalTo(self.view);
+        make.left.equalTo(self.view);
+        make.height.equalTo(@40);
+    }];
+    
+//    [self.createButton mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.companyNameRow).with.offset(50);
+//        make.right.equalTo(self.view);
+//        make.left.equalTo(self.view);
+//        make.bottom.equalTo(self.view);
+//        make.width.equalTo(self.view);
+//    }];
+//    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,14 +155,6 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end
+
+

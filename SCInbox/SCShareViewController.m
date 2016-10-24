@@ -120,9 +120,10 @@
     self.createContactVC = [SCCCreateContactViewController new];
     self.createContactVC.createContactDelegate = self;
     [self.containerView addSubview:self.createContactVC.view];
-    self.createContactVC.view.hidden = YES;
     [self addChildViewController:self.createContactVC];
+    self.createContactVC.view.hidden = YES;
     
+    // text view
     self.textView.delegate = self;
     
     //
@@ -175,10 +176,7 @@
     }];
     
     [self.createContactVC.view mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.containerView);
-        make.bottom.equalTo(self.containerView);
-        make.right.equalTo(self.containerView).with.offset(-170);
-        make.left.equalTo(self.containerView).with.offset(170);
+        make.edges.equalTo(self.containerView);
     }];
     
     [self.mailsOverlay mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -430,12 +428,6 @@
         }
         
         
-        //[self.view bringSubviewToFront:self.toContainerView];
-        
-        [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@(height + 1));
-        }];
-        
         [UIView animateWithDuration:0.3 animations:^{
             [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.equalTo(@(height + 1));
@@ -451,6 +443,7 @@
             
             
             [self.containerView layoutIfNeeded];
+            [self.createContactVC.view layoutIfNeeded];
 
             
         } completion:^(BOOL finished) {
@@ -481,13 +474,19 @@
     
     [UIView animateWithDuration:0.3 animations:^{
         
-        
+        //
         [self.toContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(toViewHeight));
         }];
-        
         [self.toContainerView layoutIfNeeded];
         
+        [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
+            int heithg  = self.view.frame.size.height - toViewHeight - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height - self.keyboardFrame.size.height;
+            make.height.equalTo(@(heithg));
+        }];
+        
+        
+        // to collection scroll to last row
         NSIndexPath *index  = [NSIndexPath indexPathForRow:self.mailsCollectionView.contacts.count - 1 inSection:0];
         [self.mailsCollectionView scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
         
